@@ -29,10 +29,10 @@ export class GetQuoteService {
       context.transaction_id = requestPayload.context.transaction_id;
       // context.bap_id=requestPayload.context.bap_id,
       // context.bap_uri=requestPayload.context.bap_uri
-      
       if (
         requestPayload.context.domain === Domain.retail ||
-        requestPayload.context.domain === Domain.tourism
+        requestPayload.context.domain === Domain.tourism ||
+        requestPayload.context.domain === Domain.software_assurance
       ) {
         let items: any = [];
         

@@ -38,6 +38,7 @@ class SearchRequestMessageDto {
   criteria: SearchCriteria
 }
 export class SearchRequestDto {
+  token?: any;
   @ApiProperty({
     type:{}
   })

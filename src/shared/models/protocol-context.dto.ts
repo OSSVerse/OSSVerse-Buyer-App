@@ -3,7 +3,7 @@ export interface ProtocolContext {
   country: string
   city: string
   action: ProtocolContextAction
-  core_version: string
+  version: string
   bap_id?: string
   bap_uri?: string
   bpp_id?: string

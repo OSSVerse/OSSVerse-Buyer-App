@@ -13,12 +13,13 @@ export const becknUrl = {
 export const becknConfig = {
   country: "IND",
   city: "std:080",
-  core_version: "0.9.4"
+  core_version: "1.1.0"
 };
 
 export enum Domain {
   mobility = "mobility",
   retail = "retail",
   tourism = "tourism",
-  retail_amsterdam = "retail-amsterdam"
+  retail_amsterdam = "retail-amsterdam",
+  software_assurance = "Software Assurance"
 }

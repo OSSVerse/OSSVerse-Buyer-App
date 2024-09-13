@@ -30,7 +30,8 @@ export class InitService {
       let payload;
       if (
         requestPayload.context.domain === Domain.retail ||
-        requestPayload.context.domain === Domain.tourism
+        requestPayload.context.domain === Domain.tourism ||
+        requestPayload.context.domain === Domain.software_assurance
       ) {
         let items: any = [];
         requestPayload.message.order.items.map((item) => {

@@ -29,19 +29,21 @@ export class ContextFactory {
       case Domain.retail:
         becknDomain = "nic2004:52110";
         break;
-
       case Domain.tourism:
         becknDomain = "nic2004:52110";
         break;
       case Domain.retail_amsterdam:
         becknDomain = Domain.retail_amsterdam;
+        break;
+      default:
+        becknDomain = domain
     }
     return {
       domain: becknDomain,
       country: becknConfig.country,
       city: becknConfig.city,
       action: action,
-      core_version: becknConfig.core_version,
+      version: becknConfig.core_version,
       bap_id: process.env.BAP_ID,
       bap_uri: process.env.BAP_URI,
       bpp_id: bpp_id,
