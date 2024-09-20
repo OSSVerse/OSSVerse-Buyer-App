@@ -28,9 +28,17 @@
 
 ## Installation
 
+### Using npm
+
 ```bash
 $ npm install
 ```
+
+### Using docker
+
+`docker-compose up --build`
+
+After this step, the app will be up and running.
 
 ## Running the app
 
