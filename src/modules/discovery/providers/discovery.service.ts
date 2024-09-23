@@ -5,7 +5,7 @@ import { SearchRequestDto } from "../request/search.request.dto";
 import { becknUrl } from "src/configs/api.config";
 import { ContextFactory } from 'src/shared/factories/context.factory.provider';
 import { ProtocolContextAction } from "src/shared/models/protocol-context.dto";
-import { FirebaseAuthenticationService } from "src/shared/providers/firebase.provider";
+// import { FirebaseAuthenticationService } from "src/shared/providers/firebase.provider";
 import { Domain } from "../../../configs/api.config";
 
 @Injectable()
@@ -23,15 +23,15 @@ export class DiscoveryService {
       let additionalPayload
       let fullfillment = {
         start: {
-          location: requestPayload.message.criteria.pickupLocation ? {
-            gps: requestPayload.message.criteria.pickupLocation
+          location: requestPayload.message.criteria?.pickupLocation ? {
+            gps: requestPayload.message.criteria?.pickupLocation
           } : {}
 
         },
         end: {
-          location: {
-            gps: requestPayload.message.criteria.dropLocation
-          }
+          location: requestPayload.message.criteria?.dropLocation ? {
+            gps: requestPayload.message.criteria?.dropLocation
+          } : {}
         }
 
       }
@@ -55,9 +55,9 @@ export class DiscoveryService {
           }
         }
       }
-      let paylaod;
+      let payload;
       if (requestPayload.context.domain===Domain.retail || requestPayload.context.domain===Domain.tourism) {
-        paylaod = {
+        payload = {
           context: context,
           message: {
             intent: additionalPayload
@@ -65,19 +65,28 @@ export class DiscoveryService {
         }
       } else {
 
-        paylaod = {
+        payload = {
           context: context,
           message: {
             intent: {
-              fulfillment: fullfillment
+              item: {
+                descriptor: {
+                  name: requestPayload.message.criteria.searchString ? requestPayload.message.criteria.searchString : ""
+                }
+              },
+              category: {
+                descriptor: {
+                  name: requestPayload.message.criteria.categoryName ? requestPayload.message.criteria.categoryName : ""
+                }
+              }
             }
           }
 
         }
       }
       this.logger.log("calling search endpoint of protocol server: requestpayload", requestPayload)
-      this.logger.log(JSON.stringify(paylaod))
-      const result = await this.protocolServerService.executeAction(becknUrl.search, paylaod)
+      this.logger.log(JSON.stringify(payload))
+      const result = await this.protocolServerService.executeAction(becknUrl.search, payload)
       console.log(result)
       const mappedResult = this.mapper.map(result)
       return mappedResult
