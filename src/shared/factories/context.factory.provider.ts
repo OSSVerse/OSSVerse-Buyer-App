@@ -40,8 +40,17 @@ export class ContextFactory {
     }
     return {
       domain: becknDomain,
-      country: becknConfig.country,
-      city: becknConfig.city,
+      // country: becknConfig.country,
+      location: {
+        country: {
+          name: "India",
+          code: becknConfig.country
+        },
+        city: {
+          name: "Bengaluru",
+          code: becknConfig.city,
+        } 
+      },
       action: action,
       version: becknConfig.core_version,
       bap_id: process.env.BAP_ID,

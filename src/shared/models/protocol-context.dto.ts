@@ -1,7 +1,19 @@
 export interface ProtocolContext {
   domain: string
-  country: string
-  city: string
+  
+  location: {
+    country: {
+      name: string
+      code: string
+    }
+    city: {
+      name: string
+      code: string
+    }
+  }
+  // city: {}
+  // name: string
+  // code: string
   action: ProtocolContextAction
   version: string
   bap_id?: string
