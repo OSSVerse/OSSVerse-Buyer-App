@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "6d00d603-152e-487b-b7e4-c9129e64070c",
+		"name": "OSSVerse-Buyer-App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31515122",
+		"_collection_link": "https://ossverse-dev-team.postman.co/workspace/OSSVerse~eff0cbca-d46f-4026-8654-9da1358eec33/collection/20639210-6d00d603-152e-487b-b7e4-c9129e64070c?action=share&source=collection_link&creator=31515122"
+	},
+	"item": [
+		{
+			"name": "Search",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"context\": {\n        \"domain\": \"Software Assurance\",\n        \"country\": \"IND\",\n        \"city\": \"std:080\",\n        \"action\": \"search\",\n        \"version\": \"1.1.0\",\n        \"bap_id\": \"bap.ossverse.com\",\n        \"bap_uri\": \"http://bap.ossverse.com\",\n        \"transaction_id\": \"79f18fd7-d67b-4104-aa3c-184a663ab722\",\n        \"message_id\": \"950abdcd-fa11-4ac0-9932-84ea901341d8\",\n        \"timestamp\": \"2024-09-10T13:06:20.334431Z\"\n    },\n    \"message\": {\n        \"criteria\": {\n            \"searchString\": \"beep\",\n            \"categoryName\": \"OSS Project\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{buyer_url}}/client/v2/search"
+			},
+			"response": []
+		},
+		{
+			"name": "Select",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"selectRequestDto\": [\n        {\n            \"context\": {\n                \"domain\": \"Software Assurance\",\n                \"country\": \"IND\",\n                \"city\": \"std:080\",\n                \"action\": \"search\",\n                \"version\": \"1.1.0\",\n                \"bap_id\": \"bap.ossverse.com\",\n                \"bap_uri\": \"http://bap.ossverse.com\",\n                \"bpp_id\": \"openfort-oasp.ossverse.com\",\n                \"bpp_uri\": \"http://openfort-oasp.ossverse.com\",\n                \"transaction_id\": \"86dc0f81-45a6-4fe6-a7e7-ff567894a6ac\",\n                \"message_id\": \"577f8480-8796-4309-b881-72a09df7f154\",\n                \"timestamp\": \"2024-09-10T13:06:20.334431Z\"\n            },\n            \"message\": {\n                \"order\": {\n                    \"provider\": {\n                        \"id\": \"22561127-d9d5-49d1-b613-a068c781ed10\"\n                    }, \n                    \"items\": [\n                    {\n                        \"id\": \"65f95f59-e306-407a-8382-91c153241fe1\"\n                    }\n                    ],\n                    \"fulfillment\": {\n                        // fulfillment details here\n                    }\n                }\n                // \"cart\": {}\n            }\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{buyer_url}}/client/v2/get_quote"
+			},
+			"response": []
+		},
+		{
+			"name": "Init",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"initRequestDto\": [\n        {\n            \"context\": {\n                \"domain\": \"Software Assurance\",\n                \"location\": {\n                    \"city\": {\n                        \"name\": \"Bangalore\",\n                        \"code\": \"std:080\"\n                    },\n                    \"country\": {\n                        \"name\": \"India\",\n                        \"code\": \"IND\"\n                    }\n                },\n                \"action\": \"init\",\n                \"version\": \"1.1.0\",\n                \"transaction_id\": \"86dc0f81-45a6-4fe6-a7e7-ff567894a6ac\",\n                \"message_id\": \"f2185e6a-1c7c-40cd-b8b3-49fe80947d05\",\n                \"timestamp\": \"2023-10-09T04:46:28.012Z\",\n                \"bap_id\": \"bap.ossverse.com\",\n                \"bap_uri\": \"http://bap.ossverse.com\",\n                \"bpp_id\": \"openfort-oasp.ossverse.com\",\n                \"bpp_uri\": \"http://openfort-oasp.ossverse.com\"\n            },\n            \"message\": {\n                \"order\": {\n                    \"provider\": {\n                        \"id\": \"22561127-d9d5-49d1-b613-a068c781ed10\"\n                    },\n                    \"items\": [\n                        {\n                            \"id\": \"65f95f59-e306-407a-8382-91c153241fe1\"\n                        }\n                    ],\n                    \"billing\": {\n                        \"name\": \"Neeraj Kumar\",\n                        \"address\": \"Apt 303, Maple Towers, Richmond Road, 560001\",\n                        \"state\": {\n                            \"name\": \"Jurong East\"\n                        },\n                        \"city\": {\n                            \"name\": \"Jurong East\"\n                        },\n                        \"email\": \"dummy-neeraj@gmail.com\",\n                        \"phone\": \"8197511885\"\n                    }\n                }\n            }\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{buyer_url}}/client/v2/initialize_order"
+			},
+			"response": []
+		},
+		{
+			"name": "Confirm",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"confirmRequestDto\": [\n        {\n            \"context\": {\n                \"domain\": \"Software Assurance\",\n                \"location\": {\n                    \"city\": {\n                        \"name\": \"Bangalore\",\n                        \"code\": \"std:080\"\n                    },\n                    \"country\": {\n                        \"name\": \"India\",\n                        \"code\": \"IND\"\n                    }\n                },\n                \"action\": \"confirm\",\n                \"version\": \"1.1.0\",\n                \"transaction_id\": \"86dc0f81-45a6-4fe6-a7e7-ff567894a6ac\",\n                \"message_id\": \"db047a7d-651c-4a6f-837f-c0b5071ba44c\",\n                \"timestamp\": \"2023-10-09T04:46:28.012Z\",\n                \"bap_id\": \"bap.ossverse.com\",\n                \"bap_uri\": \"http://bap.ossverse.com\",\n                \"bpp_id\": \"openfort-oasp.ossverse.com\",\n                \"bpp_uri\": \"http://openfort-oasp.ossverse.com\"\n            },\n            \"message\": {\n                \"order\": {\n                    \"provider\": {\n                        \"id\": \"22561127-d9d5-49d1-b613-a068c781ed10\"\n                    },\n                    \"items\": [\n                        {\n                            \"id\": \"65f95f59-e306-407a-8382-91c153241fe1\"\n                        }\n                    ],\n                    \"fulfillments\": [\n                    ],\n                    \"billing\": {\n                        \"name\": \"Neeraj Kumar\",\n                        \"address\": \"Apt 303, Maple Towers, Richmond Road, 560001\",\n                        \"state\": {\n                            \"name\": \"Jurong East\"\n                        },\n                        \"city\": {\n                            \"name\": \"Jurong East\"\n                        },\n                        \"email\": \"dummy-neeraj@gmail.com\",\n                        \"phone\": \"8197511885\"\n                    }\n                }\n            }\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{buyer_url}}/client/v2/confirm"
+			},
+			"response": []
+		},
+		{
+			"name": "Status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"statusRequestDto\": [\n        {\n            \"context\": {\n                \"domain\": \"Software Assurance\",\n                \"location\": {\n                    \"city\": {\n                        \"name\": \"Bangalore\",\n                        \"code\": \"std:080\"\n                    },\n                    \"country\": {\n                        \"name\": \"India\",\n                        \"code\": \"IND\"\n                    }\n                },\n                \"action\": \"status\",\n                \"version\": \"1.1.0\",\n                \"transaction_id\": \"86dc0f81-45a6-4fe6-a7e7-ff567894a6ac\",\n                \"message_id\": \"f274a4c3-74ea-4921-8c5c-83ee066eb1b0\",\n                \"timestamp\": \"2023-10-09T04:46:28.012Z\",\n                \"bap_id\": \"bap.ossverse.com\",\n                \"bap_uri\": \"http://bap.ossverse.com\",\n                \"bpp_id\": \"openfort-oasp.ossverse.com\",\n                \"bpp_uri\": \"http://openfort-oasp.ossverse.com\"\n            },\n            \"message\": {\n                \"order_id\": \"order-$2a$10$k021x5HN3VQ3u/8DqWp.BepnTZWDccbIf9Cp/Ug8fmRHGyR7OKriq\"\n            }\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{buyer_url}}/client/v2/status"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "buyer_url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
