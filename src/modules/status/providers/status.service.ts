@@ -44,6 +44,7 @@ export class StatusService {
      
       const result = await this.protocolServerService.executeAction(becknUrl.status, payload)
      
+      console.log("====================result===================", JSON.stringify(result));
       
 
       
@@ -55,8 +56,11 @@ export class StatusService {
       }
       const statusResponse = await Promise.all(
         result.responses.map(async (value) => {
+          console.log("====================value============", JSON.stringify(value))
           const id = value.message.order.id;
           const fetchOrder=await this.fetchOrderId(id)
+          
+          console.log("====================================fetchOrder=============", fetchOrder);
           
 
           return {
@@ -65,7 +69,7 @@ export class StatusService {
               ...value.message,
               order: {
                 ...value.message.order,
-                displayId: fetchOrder[0].displayOrderId,
+                displayId: value?.message?.order?.id,
               },
             },
           };
@@ -86,15 +90,15 @@ export class StatusService {
       throw error
     }
   }
-  async fetchOrderId(orderId: String): Promise<any> {
+  async fetchOrderId(orderId: string): Promise<any> {
     try {
    
       return this.orderIdModel.find({
         actualOrderId:orderId 
       }).exec();
     } catch (error) {
-      this.logger.error("error fetching orders", error);
-      throw error;
+      this.logger.error(`Error fetching orders with orderId: ${orderId}`, error);
+      throw new Error(`Failed to fetch order with id: ${orderId}`);
     }
   }
 }
