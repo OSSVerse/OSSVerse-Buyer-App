@@ -2,9 +2,8 @@
 https://docs.nestjs.com/controllers#controllers
 */
 
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import {ConfimRequestDto, ListConfirmRequestDto } from './request/confirm.request.dto';
-import { ProtocolContextAction } from 'src/shared/models/protocol-context.dto';
+import { Body, Controller, Post } from '@nestjs/common';
+import { ListConfirmRequestDto } from './request/confirm.request.dto';
 import { ConfirmService } from './providers/confirm.service';
 import { ApiTags } from '@nestjs/swagger';
 import { InjectModel } from '@nestjs/mongoose';
@@ -27,7 +26,7 @@ export class ConfirmController {
          return this.confirmService.confirm(confirmDto);
         })
          const response = await Promise.all(requests)
-         await this.storeOrder(response, listConfirmDto.userId)
+        //  await this.storeOrder(response, listConfirmDto.userId)
 
          return response
       }

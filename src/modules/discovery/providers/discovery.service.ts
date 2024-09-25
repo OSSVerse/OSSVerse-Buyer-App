@@ -22,17 +22,17 @@ export class DiscoveryService {
       const context = this.contextFactory.create(ProtocolContextAction.SEARCH,requestPayload.context.domain)
       let additionalPayload
       let fullfillment = {
-        start: {
-          location: requestPayload.message.criteria?.pickupLocation ? {
-            gps: requestPayload.message.criteria?.pickupLocation
-          } : {}
+        // start: {
+        //   location: requestPayload.message.criteria?.pickupLocation ? {
+        //     gps: requestPayload.message.criteria?.pickupLocation
+        //   } : {}
 
-        },
-        end: {
-          location: requestPayload.message.criteria?.dropLocation ? {
-            gps: requestPayload.message.criteria?.dropLocation
-          } : {}
-        }
+        // },
+        // end: {
+        //   location: requestPayload.message.criteria?.dropLocation ? {
+        //     gps: requestPayload.message.criteria?.dropLocation
+        //   } : {}
+        // }
 
       }
       if (requestPayload.context.domain===Domain.retail || requestPayload.context.domain===Domain.tourism) {
@@ -46,7 +46,7 @@ export class DiscoveryService {
           },
           provider: {
             descriptor: {},
-            id: requestPayload.message.criteria?.providerId
+            // id: requestPayload.message.criteria?.providerId
           },
           category: {
             descriptor: {

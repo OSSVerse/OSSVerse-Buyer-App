@@ -1,7 +1,8 @@
 import { ApiProperty, ApiTags } from "@nestjs/swagger";
-import { ClientContext } from "src/shared/models/client-context.dto";
 import { IsEnum } from 'class-validator';
-
+import { Domain } from "src/configs/api.config";
+import { BillingInfo } from "src/modules/init/request/init.request.dto";
+import { locationInfo } from "src/shared/models/client-context.dto";
 
 export enum Status {
   PAID = 'PAID',
@@ -9,161 +10,205 @@ export enum Status {
 
 }
 
- export enum PaymentType {
+export enum PaymentType {
   ON_ORDER = 'ON-ORDER',
   PRE_FULFILLMENT = 'PRE-FULFILLMENT',
-  ON_FULFILLMENT='ON-FULFILLMENT',
-  POST_FULFILLMENT="POST-FULFILLMENT"
+  ON_FULFILLMENT = 'ON-FULFILLMENT',
+  POST_FULFILLMENT = "POST-FULFILLMENT"
 
 }
+
 class AddressInfo {
   @ApiProperty({
-    type:String
+    type: String
   })
   door: String
   @ApiProperty({
-    type:String
+    type: String
   })
   country: String
   @ApiProperty({
-    type:String
+    type: String
   })
   city: String
   @ApiProperty({
-    type:String
+    type: String
   })
   area_code: String
   @ApiProperty({
-    type:String
+    type: String
   })
   state: String
   @ApiProperty({
-    type:String
+    type: String
   })
   building: String
   @ApiProperty({
-    type:String
+    type: String
   })
   name: String
   @ApiProperty({
-    type:String
+    type: String
   })
   locality: String
 }
+
 class SelectPaymentParams {
   @ApiProperty({
-    type:String
+    type: String
   })
   transactionId: String
 
   @ApiProperty({
-    type:String
+    type: String
   })
   amount: String
   @ApiProperty({
-    type:String
+    type: String
   })
   currency: String
   @ApiProperty({
-    type:String
+    type: String
   })
   transaction_status: String
 }
+
 export class SelectPayment {
   @ApiProperty({
-    type:String
+    type: String
   })
   id: String
   @ApiProperty({
-    type:String
+    type: String
   })
   @IsEnum(PaymentType)
-  type:PaymentType
+  type: PaymentType
   @ApiProperty({
-    type:SelectPaymentParams
+    type: SelectPaymentParams
   })
   params: SelectPaymentParams
   @IsEnum(Status)
-  status:Status
+  status: Status
 }
 
-class BillingInfo {
+class ConfirmOrder {
   @ApiProperty({
-    type:AddressInfo
-  })
-  address: AddressInfo
-  @ApiProperty({
-    type:String
-  })
-  phone: String
-  @ApiProperty({
-    type:String
-  })
-  name: String
-  @ApiProperty({
-    type:String
-  })
-  email: String
-}
-class SelectOrder {
-  @ApiProperty({
-    type:String
+    example: 'deb909f2-8369-49fc-b30b-231b2ec4b874',
+    type: String
   })
   id: String
   @ApiProperty({
-    type:{}
+    type: {}
   })
   provider: any
   @ApiProperty({
-    type:{}
+    type: {}
   })
   items: any
   @ApiProperty({
-    type:{}
+    type: {}
   })
   quote: any
   @ApiProperty({
-    type:{}
+    type: {}
   })
   fulfillment: any
   @ApiProperty({
-    type:SelectPayment
+    type: SelectPayment
   })
   payment: SelectPayment
   @ApiProperty({
-    type:BillingInfo
+    type: BillingInfo
   })
   billing: BillingInfo
 }
+
 class ConfirmRequestMessageDto {
   @ApiProperty({
-    type:SelectOrder
+    type: ConfirmOrder
   })
-  order: SelectOrder
+  order: ConfirmOrder
 }
 
+class ConfirmContext {
+  @ApiProperty({
+    example: 'Software Assurance',
+    type: String
+  })
+  domain: Domain
+  @ApiProperty({
+    example: 'confirm',
+    type: String
+  })
+  action: String
+  @ApiProperty({
+    example: '1.1.0',
+    type: String
+  })
+  version: String
+  @ApiProperty({
+    example: 'ead489b8-81de-49a4-baf6-8d8de7eabf32',
+    type: String
+  })
+  transaction_id?: string
+  @ApiProperty({
+    type: locationInfo
+  })
+  location?: locationInfo
+  @ApiProperty({
+    example: 'openfort-oasp.ossverse.com',
+    type: String
+  })
+  bpp_id?: string
+  @ApiProperty({
+    example: 'http://openfort-oasp.ossverse.com',
+    type: String
+  })
+  bpp_uri?: string
+  @ApiProperty({
+    example: 'bap.ossverse.com',
+    description:'domain is required'
+  })
+  bap_id? :string
+  @ApiProperty({
+    example: 'http://bap.ossverse.com',
+    type: String
+  })
+  bap_uri?: string
+  @ApiProperty({
+    example: '1d07c819-695c-44ab-bd47-c21678a6ba4e',
+    type: String
+  })
+  message_id?: string
+  @ApiProperty({
+    example: '2023-10-09T04:46:28.012Z',
+    type: String
+  })
+  timestamp?: string
+}
 
 export class ConfimRequestDto {
   @ApiProperty({
-    type:ClientContext
+    type: ConfirmContext
   })
-  context: ClientContext
+  context: ConfirmContext
+
   @ApiProperty({
-    type:ConfirmRequestMessageDto
+    type: ConfirmRequestMessageDto
   })
   message: ConfirmRequestMessageDto
 }
 
-export class ListConfirmRequestDto{
+export class ListConfirmRequestDto {
   @ApiProperty({
-    type:[ConfimRequestDto]
+    type: [ConfimRequestDto]
   })
   confirmRequestDto: ConfimRequestDto[]
 
-  @ApiProperty({
-    type: String
-  })
-  userId: string
+  // @ApiProperty({
+  //   type: String
+  // })
+  // userId: string
 }
 
 

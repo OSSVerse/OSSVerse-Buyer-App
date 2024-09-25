@@ -17,16 +17,16 @@ dotenv.config({ path: '.env.default' });
 @Module({
 
   imports: [
+    DiscoveryModule,
+    GetQuoteModule,
+    InitModule,
+    ConfirmModule,
+    StatusModule,
     CancelModule,
     RatingModule,
-    InitModule,
     SupportModule,
     TrackModule,
-    StatusModule,
-    GetQuoteModule,
     AccountsModule,
-    DiscoveryModule,
-    ConfirmModule,
     HttpModule,
     OrderModule,
     // MongooseModule.forRoot('mongodb://root:beckn@123@localhost:27017/beckn?authSource=admin&directConnection=true')

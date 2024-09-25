@@ -37,7 +37,7 @@ export class InitService {
         requestPayload.message.order.items.map((item) => {
           items.push({
             id: item.id,
-            quantity: item.quantity,
+            // quantity: item.quantity,
           });
         });
         payload = {
@@ -46,7 +46,7 @@ export class InitService {
             order: {
               provider: {
                 id: requestPayload.message.order.provider.id,
-                locations: requestPayload.message.order.provider.locations,
+                // locations: requestPayload.message.order.provider.locations,
               },
               items: items,
               addOns: [],
