@@ -1,64 +1,54 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { ClientContext } from "src/shared/models/client-context.dto";
+import { Domain } from "src/configs/api.config";
+import { locationInfo } from "src/shared/models/client-context.dto";
 
 
-
-class AddressInfo {
-
+class StateInfo {
   @ApiProperty({
-    type: String
-  })
-  door: String;
-  @ApiProperty({
-    type: String
-  })
-  country: String;
-  @ApiProperty({
-    type: String
-  })
-  city: String;
-  @ApiProperty({
-    type: String
-  })
-  area_code: String;
-  @ApiProperty({
-    type: String
-  })
-  state: String;
-  @ApiProperty({
-    type: String
-  })
-  building: String;
-  @ApiProperty({
+    example: 'Name',
     type: String
   })
   name: String;
-  @ApiProperty({
-    type: String
-  })
-  locality: String
 }
 
-class BillingInfo {
+class CityInfo {
   @ApiProperty({
-    type: AddressInfo
-  })
-  address: AddressInfo;
-  @ApiProperty({
+    example: 'Name',
     type: String
   })
-  phone: String;
+  name: String;
+}
+
+export class BillingInfo {
   @ApiProperty({
+    example: 'Name',
     type: String
   })
   name: String;
   @ApiProperty({
+    example: 'address',
+    type: String
+  })
+  address: string;
+  @ApiProperty({
+    type: StateInfo
+  })
+  state: StateInfo;
+  @ApiProperty({
+    type: CityInfo
+  })
+  city: CityInfo;
+  @ApiProperty({
+    example: 'example@gmail.com',
     type: String
   })
   email: String
+  @ApiProperty({
+    example: '123456789',
+    type: String
+  })
+  phone: String;
 }
-
-
 
 class SelectDescriptor {
   @ApiProperty({
@@ -69,14 +59,15 @@ class SelectDescriptor {
     type: String
   })
   name: String;
-
 }
+
 class SelectCatDescriptor {
   @ApiProperty({
     type: String
   })
   name: String;
 }
+
 class SelectCategory {
   @ApiProperty({
     type: SelectCatDescriptor
@@ -87,70 +78,44 @@ class SelectCategory {
   })
   id: String
 }
+
 class SelectProvider {
   @ApiProperty({
-    type: [String]
-  })
-  locations: Array<string> ;
-  @ApiProperty({
-    type: SelectDescriptor
-  })
-  descriptor: SelectDescriptor;
-  @ApiProperty({
+    example: 'deb909f2-8369-49fc-b30b-231b2ec4b874',
     type: String
   })
   id: String;
-  @ApiProperty({
-    type: [SelectCategory]
-  })
-  categories: SelectCategory[];
 }
-class Count{
+
+class Count {
   @ApiProperty({
     type: Number
   })
-  count:number
+  count: number
 }
-class Quantity{
+
+class Quantity {
   @ApiProperty({
     type: String
   })
-  id:string;
+  id: string;
   @ApiProperty({
     type: String
   })
   @ApiProperty({
     type: Count
   })
-  quantity:Count;
-
+  quantity: Count;
 }
+
 class item {
   @ApiProperty({
+    example: '1edd54c3-dd53-43e0-b3ad-355d2e8bba70',
     type: String
   })
   id: String;
-  @ApiProperty({
-    type: String
-  })
-  fulfilment_id: String;
-  @ApiProperty({
-    type: SelectProvider
-  })
-  provider: SelectProvider
-  @ApiProperty({
-    type: Quantity
-  })
-  quantity: Quantity
-  @ApiProperty({
-    type: []
-  })
-  locations:Array<any>
 }
 
-// class item {
-//   id: String
-// }
 class SelectPerson {
   @ApiProperty({
     type: String
@@ -168,6 +133,7 @@ class SelectContact {
   })
   email: String
 }
+
 class SelectCustomer {
   @ApiProperty({
     type: SelectPerson
@@ -178,6 +144,7 @@ class SelectCustomer {
   })
   contact: SelectContact
 }
+
 class SelectFulfillment {
   @ApiProperty({
     type: SelectCustomer
@@ -189,16 +156,15 @@ class SelectFulfillment {
   id: String
 }
 
-
-class SelectOrder {
+class InitOrder {
   @ApiProperty({
     type: SelectProvider
   })
   provider: SelectProvider;
   @ApiProperty({
-    type: SelectFulfillment
+    type: []
   })
-  fulfillment: SelectFulfillment;
+  fulfillment: [];
   @ApiProperty({
     type: [item]
   })
@@ -208,22 +174,82 @@ class SelectOrder {
   })
   billing: BillingInfo;
 }
+
 class InitRequestMessageDto {
   @ApiProperty({
-    type: SelectOrder
+    type: InitOrder
   })
-  order: SelectOrder
+  order: InitOrder
 }
+
+class InitContext {
+  @ApiProperty({
+    example: 'Software Assurance',
+    type: String
+  })
+  domain: Domain
+  @ApiProperty({
+    example: 'init',
+    type: String
+  })
+  action: String
+  @ApiProperty({
+    example: '1.1.0',
+    type: String
+  })
+  version: String
+  @ApiProperty({
+    example: 'ead489b8-81de-49a4-baf6-8d8de7eabf32',
+    type: String
+  })
+  transaction_id?: string
+  @ApiProperty({
+    type: locationInfo
+  })
+  location?: locationInfo
+  @ApiProperty({
+    example: 'openfort-oasp.ossverse.com',
+    type: String
+  })
+  bpp_id?: string
+  @ApiProperty({
+    example: 'http://openfort-oasp.ossverse.com',
+    type: String
+  })
+  bpp_uri?: string
+  @ApiProperty({
+    example: 'bap.ossverse.com',
+    description:'domain is required'
+  })
+  bap_id? :string
+  @ApiProperty({
+    example: 'http://bap.ossverse.com',
+    type: String
+  })
+  bap_uri?: string
+  @ApiProperty({
+    example: '1d07c819-695c-44ab-bd47-c21678a6ba4e',
+    type: String
+  })
+  message_id?: string
+  @ApiProperty({
+    example: '2023-10-09T04:46:28.012Z',
+    type: String
+  })
+  timestamp?: string
+}
+
 export class InitRequestDto {
   @ApiProperty({
-    type: ClientContext,
+    type: InitContext,
   })
-  context: ClientContext;
+  context: InitContext;
   @ApiProperty({
     type: InitRequestMessageDto
   })
   message: InitRequestMessageDto;
 }
+
 export class ListInitRequestDto {
   @ApiProperty({
     type: [InitRequestDto]

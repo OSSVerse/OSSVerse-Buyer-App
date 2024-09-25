@@ -7,7 +7,7 @@ import { ListTrackRequestDto, TrackRequestDto } from './request/track.request.dt
 import { ProtocolContextAction } from 'src/shared/models/protocol-context.dto';
 import { TrackService } from './providers/track.service'
 import { ApiTags } from '@nestjs/swagger';
-@ApiTags('track')
+// @ApiTags('track')
 @Controller('client')
 export class TrackController {
 

@@ -7,7 +7,7 @@ import { ListRatingRequestDto, RatingRequestDto } from './request/rating.request
 import { ProtocolContextAction } from 'src/shared/models/protocol-context.dto';
 import { RatingService } from './providers/rating.service'
 import { ApiTags } from '@nestjs/swagger';
-@ApiTags('rating')
+// @ApiTags('rating')
 @Controller('client')
 export class RatingController {
 

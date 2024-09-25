@@ -9,8 +9,8 @@ import {
 } from "./request/cancel.request.dto";
 import { ProtocolContextAction } from "src/shared/models/protocol-context.dto";
 import { CancelService } from "./providers/cancel.service";
-import { ApiTags } from "@nestjs/swagger";
-@ApiTags("cancel")
+// import { ApiTags } from "@nestjs/swagger";
+// @ApiTags("cancel")
 @Controller("client")
 export class CancelController {
   constructor(private readonly cancelService: CancelService) {}

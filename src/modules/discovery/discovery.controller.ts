@@ -1,6 +1,5 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Post } from "@nestjs/common";
 import { SearchRequestDto } from "./request/search.request.dto";
-import { ProtocolContextAction } from "src/shared/models/protocol-context.dto";
 import { DiscoveryService } from "./providers/discovery.service";
 import { ApiTags } from "@nestjs/swagger";
 

@@ -2,28 +2,27 @@
 https://docs.nestjs.com/controllers#controllers
 */
 
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import {InitRequestDto, ListInitRequestDto } from './request/init.request.dto';
-import { ProtocolContextAction } from 'src/shared/models/protocol-context.dto';
+import { Body, Controller, Post } from '@nestjs/common';
+import { ListInitRequestDto } from './request/init.request.dto';
 import { InitService } from './providers/init.service';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('initialize_order')
+@ApiTags('init')
 @Controller("client")
 export class InitController {
-    constructor(
-        private readonly initService: InitService
-      ) {
-    
-      }
-      
-      @Post('/v2/initialize_order')
-      async get(@Body() initDto: ListInitRequestDto): Promise<any> {
+  constructor(
+    private readonly initService: InitService
+  ) {
 
-        const requests = initDto.initRequestDto.map(initDto => {
-          return this.initService.init(initDto);
-        })
-         return await Promise.all(requests)
-        // return await this.initService.init(initDto);
-      }
+  }
+
+  @Post('/v2/initialize_order')
+  async get(@Body() initDto: ListInitRequestDto): Promise<any> {
+
+    const requests = initDto.initRequestDto.map(initDto => {
+      return this.initService.init(initDto);
+    })
+    return await Promise.all(requests)
+    // return await this.initService.init(initDto);
+  }
 }
