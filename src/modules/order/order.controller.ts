@@ -16,8 +16,8 @@ export class OrderController {
       
       @Get('/v2/orders')
       async get(@Query() params: OrdersRequestDto): Promise<any> {
-        console.log(params.userId)
-         const orders = await this.orderService.fetchOrders(params.userId)
+        console.log(params.actualOrderId)
+         const orders = await this.orderService.fetchOrders(params.actualOrderId)
          return {
           orders
          }
