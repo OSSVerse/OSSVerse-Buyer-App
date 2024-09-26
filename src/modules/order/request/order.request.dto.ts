@@ -4,6 +4,6 @@ export class OrdersRequestDto {
   @ApiProperty({
     type: String
   })
-  userId: string;
-  actualOrderId: string;
+  userId: string
+  
 }

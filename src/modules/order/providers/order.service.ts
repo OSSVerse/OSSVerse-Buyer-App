@@ -13,18 +13,14 @@ export class OrderService {
     @InjectModel(Order.name) private orderModel: Model<Order>
   ) {}
 
-  async fetchOrders(actualOrderId: string): Promise<any> {
+  async fetchOrders(userId: string): Promise<any> {
     try {
-      // const result = await this.orderModel
-      //   .find({
-      //     userId: userId,
-      //   })
-      //   .exec();
       const result = await this.orderModel
-      .find({
-        actualOrderId: actualOrderId,
-      })
-      .exec();
+        .find({
+          userId: userId,
+        })
+        .exec();
+
 
       console.log("RESULT ALL ORDER::::", JSON.stringify(result));
 
@@ -96,7 +92,7 @@ export class OrderService {
 
       const updatedResult = await this.orderModel
         .find({
-          actualOrderId: actualOrderId,
+          userId: userId,
         })
         .exec();
 
