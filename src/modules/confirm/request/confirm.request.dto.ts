@@ -91,36 +91,39 @@ export class SelectPayment {
   status: Status
 }
 
-class ConfirmOrder {
+class SelectProvider {
   @ApiProperty({
     example: 'deb909f2-8369-49fc-b30b-231b2ec4b874',
     type: String
   })
-  id: String
+  id: String;
+}
+
+class item {
   @ApiProperty({
-    type: {}
+    example: '1edd54c3-dd53-43e0-b3ad-355d2e8bba70',
+    type: String
   })
-  provider: any
+  id: String;
+}
+
+class ConfirmOrder {
   @ApiProperty({
-    type: {}
+    type: SelectProvider
   })
-  items: any
+  provider: SelectProvider;
   @ApiProperty({
-    type: {}
+    type: []
   })
-  quote: any
+  fulfillment: [];
   @ApiProperty({
-    type: {}
+    type: [item]
   })
-  fulfillment: any
-  @ApiProperty({
-    type: SelectPayment
-  })
-  payment: SelectPayment
+  items: item[];
   @ApiProperty({
     type: BillingInfo
   })
-  billing: BillingInfo
+  billing: BillingInfo;
 }
 
 class ConfirmRequestMessageDto {
@@ -167,9 +170,9 @@ class ConfirmContext {
   bpp_uri?: string
   @ApiProperty({
     example: 'bap.ossverse.com',
-    description:'domain is required'
+    description: 'domain is required'
   })
-  bap_id? :string
+  bap_id?: string
   @ApiProperty({
     example: 'http://bap.ossverse.com',
     type: String
