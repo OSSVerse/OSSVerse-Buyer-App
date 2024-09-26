@@ -96,7 +96,7 @@ export class OrderService {
 
       const updatedResult = await this.orderModel
         .find({
-          userId: userId,
+          actualOrderId: actualOrderId,
         })
         .exec();
 
