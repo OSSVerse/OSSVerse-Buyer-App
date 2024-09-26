@@ -42,10 +42,10 @@ export class ConfirmService {
         requestPayload.context.domain === Domain.retail ||
         requestPayload.context.domain === Domain.tourism
       ) {
-        const payment = plainToClass(
-          SelectPayment,
-          requestPayload.message.order.payment
-        );
+        // const payment = plainToClass(
+        //   SelectPayment,
+        //   // requestPayload.message.order.payment
+        // );
         // const validationErrors = validateSync(payment);
         // if (validationErrors.length > 0) {
         //   throw validationErrors;
@@ -56,10 +56,10 @@ export class ConfirmService {
           items.push({
             id: item.id,
             extended_attributes: {},
-            quantity: item.quantity,
-            price: item.price,
-            descriptor: item.descriptor,
-            tags: item.tags
+            // quantity: item.quantity,
+            // price: item.price,
+            // descriptor: item.descriptor,
+            // tags: item.tags
           });
         });
         paylaod = {
@@ -68,14 +68,14 @@ export class ConfirmService {
             order: {
               provider: {
                 id: requestPayload.message.order.provider.id,
-                locations: requestPayload?.message?.order?.provider?.locations
+                // locations: requestPayload?.message?.order?.provider?.locations
               },
               items: items,
               addOns: [],
               offers: [],
               billing: requestPayload.message.order.billing,
               fulfillment: requestPayload.message.order.fulfillment,
-              payment: requestPayload.message.order.payment
+              // payment: requestPayload.message.order.payment
             }
           }
         };
@@ -84,10 +84,10 @@ export class ConfirmService {
           context: context,
           message: {
             order: {
-              id: requestPayload.message.order.id,
+              // id: requestPayload.message.order.id,
               provider: requestPayload.message.order.provider,
               items: requestPayload.message.order.items,
-              quote: requestPayload.message.order.quote,
+              // quote: requestPayload.message.order.quote,
               fulfillment: requestPayload.message.order.fulfillment
             }
           }
