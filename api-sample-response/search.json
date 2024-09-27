@@ -1,0 +1,131 @@
+{
+  "context": {
+    "ttl": "PT10M",
+    "action": "search",
+    "timestamp": "2024-09-27T11:51:16.180Z",
+    "message_id": "2a704873-cde1-484a-b52a-2466bcf13688",
+    "transaction_id": "440cd085-6e93-43ae-aafd-69ca6d6c453a",
+    "domain": "Software Assurance",
+    "version": "1.1.0",
+    "bap_id": "bap.ossverse.com",
+    "bap_uri": "http://bap.ossverse.com",
+    "location": {
+      "country": {
+        "name": "India",
+        "code": "IND"
+      },
+      "city": {
+        "name": "Bengaluru",
+        "code": "std:080"
+      }
+    }
+  },
+  "message": {
+    "catalogs": [
+      {
+        "context": {
+          "domain": "Software Assurance",
+          "action": "on_search",
+          "version": "1.1.0",
+          "bpp_id": "openfort-oasp.ossverse.com",
+          "bpp_uri": "http://openfort-oasp.ossverse.com",
+          "country": "IND",
+          "city": "std:080",
+          "location": {
+            "country": {
+              "name": "India",
+              "code": "IND"
+            },
+            "city": {
+              "name": "Bengaluru",
+              "code": "std:080"
+            }
+          },
+          "bap_id": "bap.ossverse.com",
+          "bap_uri": "http://bap.ossverse.com",
+          "transaction_id": "440cd085-6e93-43ae-aafd-69ca6d6c453a",
+          "message_id": "2a704873-cde1-484a-b52a-2466bcf13688",
+          "ttl": "PT10M",
+          "timestamp": "2024-09-27T11:51:18.538Z"
+        },
+        "message": {
+          "catalog": {
+            "bpp/fulfillments": [
+              {
+                "id": "1",
+                "type": "OASP Service Delivery"
+              }
+            ],
+            "bpp/descriptor": {
+              "name": "Openfort",
+              "short_desc": "",
+              "long_desc": "",
+              "images": [
+                null
+              ]
+            },
+            "bpp/providers": [
+              {
+                "id": "ceae624e-be6a-4ec5-b483-b23b3a715aa5",
+                "descriptor": {
+                  "name": "Openfort",
+                  "short_desc": "",
+                  "long_desc": "",
+                  "images": [
+                    null
+                  ]
+                },
+                "items": [
+                  {
+                    "id": "e2b41750-a165-4a42-9255-f02966401783",
+                    "descriptor": {
+                      "name": "beep",
+                      "images": []
+                    },
+                    "price": {
+                      "currency": "INR",
+                      "value": "11000",
+                      "maximum_value": "11000"
+                    },
+                    "code": "PC0019",
+                    "category_id": "OSS Project",
+                    "sub_category_id": "Assurance & Assessment Service",
+                    "description": "NA",
+                    "longDescription": "NA"
+                  },
+                  {
+                    "id": "b7bfa320-d17d-48b0-8989-f2e53e2f9384",
+                    "descriptor": {
+                      "name": "beep",
+                      "images": []
+                    },
+                    "price": {
+                      "currency": "INR",
+                      "value": "11000",
+                      "maximum_value": "11000"
+                    },
+                    "code": "PC0020",
+                    "category_id": "OSS Project",
+                    "sub_category_id": "Validation & Verification Service",
+                    "description": "NA",
+                    "longDescription": "NA"
+                  }
+                ],
+                "fulfillments": [
+                  {
+                    "contact": {
+                      "phone": "0987654321",
+                      "email": "openfort@example.com"
+                    }
+                  }
+                ],
+                "tags": [],
+                "@ondc/org/fssai_license_no": "12345678901234"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
