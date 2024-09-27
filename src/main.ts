@@ -30,7 +30,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('OSSVerse-Buyer-App')
     .setDescription('APIs on OSSVerse Buyer App')
-    .setVersion('1.0')
+    .setVersion('0.0.1')
     .addTag('OSSVerse Buyer App')
     .build();
   const document = SwaggerModule.createDocument(app, config);
