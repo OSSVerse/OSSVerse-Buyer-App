@@ -7,7 +7,8 @@ export const becknUrl = {
   status: "status",
   support: "support",
   rating: "rating",
-  cancel: "cancel"
+  cancel: "cancel",
+  orders: "orders"
 };
 
 export const becknConfig = {
