@@ -2,12 +2,12 @@
 https://docs.nestjs.com/controllers#controllers
 */
 
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { OrderService } from './providers/order.service';
 import { OrdersRequestDto } from './request/order.request.dto';
 
-// @ApiTags( 'order')
+@ApiTags( 'orders')
 @Controller("client")
 export class OrderController {
     constructor(
@@ -16,7 +16,7 @@ export class OrderController {
       
       @Get('/v2/orders')
       async get(@Query() params: OrdersRequestDto): Promise<any> {
-        console.log(params.userId)
+        console.log("=====================userID===================",params.userId)
          const orders = await this.orderService.fetchOrders(params.userId)
          return {
           orders

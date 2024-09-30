@@ -32,7 +32,7 @@ export class OrderService {
         )
       );
 
-      console.log("Filtered Result from DB", filteredData);
+      console.log("Filtered Result from DB", JSON.stringify(filteredData));
 
 
       await Promise.all(

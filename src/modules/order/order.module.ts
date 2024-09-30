@@ -10,7 +10,7 @@ import { UuidFactory } from 'src/shared/factories/uuid.factory.provider';
 
 @Module({
   imports: [HttpModule, MongooseModule.forFeature([{ name: Order.name, schema: OrderSchema }])],
-  controllers: [],
-  providers: []
+  controllers: [OrderController],
+  providers: [OrderService, ProtocolServerService, ContextFactory, UuidFactory, Logger]
 })
 export class OrderModule {}
