@@ -17,7 +17,7 @@ export class OrderController {
 
   @Get('/v2/orders')
   @ApiResponse({
-    status: 200,
+    status: 201,
     description: 'Successful quote response',
     type: MainResponseorderDto, // Use your response DTO
   })
@@ -30,7 +30,6 @@ export class OrderController {
     description: 'Internal server error',
   })
   async get(@Query() params: OrdersRequestDto): Promise<any> {
-    console.log("=====================userID===================", params.userId)
     const orders = await this.orderService.fetchOrders(params.userId)
     return {
       orders

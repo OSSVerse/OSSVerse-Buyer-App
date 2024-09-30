@@ -147,11 +147,6 @@ export class ConfirmService {
           
           const dborder = await displyOrder.save();
 
-          console.log("===============DBorder===============", dborder);
-          
-
-
-
           return {
             ...value,
             message: {

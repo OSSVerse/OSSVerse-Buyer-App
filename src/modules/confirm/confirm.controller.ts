@@ -23,7 +23,7 @@ export class ConfirmController {
       
       @Post('/v2/confirm')
       @ApiResponse({
-        status: 200,
+        status: 201,
         description: 'Successful search response',
         type: ConfirmResponseDto, // Define this DTO based on the response structure
         isArray: true,
@@ -47,15 +47,13 @@ export class ConfirmController {
       }
 
       async storeOrder(order: any, userId: string) {
-
-        console.log("==================Saving order to db===============");
         
         const createdCat = new this.orderModel({
           userId: userId,
           parentOrderId: this.uuidFactory.create(),
           orders: order
         });
-        console.log("===================saved order===============", createdCat)
+        
         return createdCat.save();
       }
 }

@@ -19,7 +19,7 @@ export class StatusController {
 
   @Post('/v2/status')
   @ApiResponse({
-    status: 200,
+    status: 201,
     description: 'Successful quote response',
     type: MainResponseStatusDto, // Use your response DTO
     isArray: true

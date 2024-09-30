@@ -245,9 +245,6 @@ class InitPayment {
   @ApiProperty({ example: '3.0' })
   '@ondc/org/buyer_app_finder_fee_amount': string;
 
-  @ApiProperty({ type: [InitSettlementDetail] })
-  settlement_details: InitSettlementDetail[];
-
   @ApiProperty({ type: [InitSettlementDetails] })
   '@ondc/org/settlement_details': InitSettlementDetails[];
 }

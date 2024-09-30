@@ -50,7 +50,6 @@ export class StatusService {
       }
       const statusResponse = await Promise.all(
         result.responses.map(async (value) => {
-          console.log("====================value============", JSON.stringify(value))
           const id = value.message.order.id;
           const fetchOrder = await this.fetchOrderId(id)
 

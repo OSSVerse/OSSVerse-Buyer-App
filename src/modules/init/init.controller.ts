@@ -20,7 +20,7 @@ export class InitController {
   @Post('/v2/initialize_order')
   @Post('/v2/initialize_order')
       @ApiResponse({
-        status: 200,
+        status: 201,
         description: 'Successful quote response',
         type: InitCatalogResponse, // Use your response DTO
         isArray: true

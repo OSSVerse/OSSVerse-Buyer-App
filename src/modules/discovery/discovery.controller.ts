@@ -11,7 +11,7 @@ export class DiscoveryController {
 
   @Post("/v2/search")
   @ApiResponse({
-    status: 200,
+    status: 201,
     description: 'Successful search response',
     type: SearchResponseDto, // Define this DTO based on the response structure
   })
@@ -24,7 +24,6 @@ export class DiscoveryController {
     description: 'Internal server error',
   })
   async search(@Body() searchDto: SearchRequestDto): Promise<any> {
-    console.log("SearchDto=====>", searchDto);
     return await this.discoveryService.search(searchDto);
   }
 }

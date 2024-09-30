@@ -17,7 +17,7 @@ export class GetQuoteController {
       
       @Post('/v2/get_quote')
       @ApiResponse({
-        status: 200,
+        status: 201,
         description: 'Successful quote response',
         type: GetQuoteResponseDto, // Use your response DTO
         isArray: true
