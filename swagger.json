@@ -1,115 +1,346 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-      "title": "OSSVerse-Buyer-App",
-      "version": "0.0.1"
-    },
-    "servers": [
-      {
-        "url": "http://{{buyer_url}}"
-      }
-    ],
-    "paths": {
-      "/client/v2/search": {
-        "post": {
-          "tags": [
-            "default"
-          ],
-          "summary": "Search",
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "example": {
-                    "context": {
-                      "domain": "Software Assurance",
-                      "country": "IND",
-                      "city": "std:080",
-                      "action": "search",
-                      "version": "1.1.0",
-                      "bap_id": "bap.ossverse.com",
-                      "bap_uri": "http://bap.ossverse.com",
-                      "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
-                      "message_id": "b7c0da9a-f06e-4b07-bbe2-dd457c2a47c6",
-                      "timestamp": "2024-09-10T13:06:20.334431Z"
-                    },
-                    "message": {
-                      "criteria": {
-                        "searchString": "beep",
-                        "categoryName": "OSS Project"
-                      }
+  "openapi": "3.0.0",
+  "info": {
+    "title": "OSSVerse-Buyer-App",
+    "version": "0.0.1"
+  },
+  "servers": [
+    {
+      "url": "http://{{buyer_url}}"
+    }
+  ],
+  "paths": {
+    "/client/v2/search": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Search",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "context": {
+                    "domain": "Software Assurance",
+                    "country": "IND",
+                    "city": "std:080",
+                    "action": "search",
+                    "version": "1.1.0",
+                    "bap_id": "bap.ossverse.com",
+                    "bap_uri": "http://bap.ossverse.com",
+                    "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
+                    "message_id": "b7c0da9a-f06e-4b07-bbe2-dd457c2a47c6",
+                    "timestamp": "2024-09-10T13:06:20.334431Z"
+                  },
+                  "message": {
+                    "criteria": {
+                      "searchString": "beep",
+                      "categoryName": "OSS Project"
                     }
                   }
                 }
               }
             }
-          },
-          "responses": {
-            "201": {
-              "description": "Created",
-              "headers": {
-                "Date": {
-                  "schema": {
-                    "type": "string",
-                    "example": "Wed, 25 Sep 2024 09:57:58 GMT"
-                  }
-                },
-                "Content-Type": {
-                  "schema": {
-                    "type": "string",
-                    "example": "application/json; charset=utf-8"
-                  }
-                },
-                "Content-Length": {
-                  "schema": {
-                    "type": "integer",
-                    "example": "6712"
-                  }
-                },
-                "Connection": {
-                  "schema": {
-                    "type": "string",
-                    "example": "keep-alive"
-                  }
-                },
-                "Server": {
-                  "schema": {
-                    "type": "string",
-                    "example": "nginx/1.18.0 (Ubuntu)"
-                  }
-                },
-                "X-Powered-By": {
-                  "schema": {
-                    "type": "string",
-                    "example": "Express"
-                  }
-                },
-                "Access-Control-Allow-Origin": {
-                  "schema": {
-                    "type": "string",
-                    "example": "*"
-                  }
-                },
-                "ETag": {
-                  "schema": {
-                    "type": "string",
-                    "example": "W/\"1a38-0iRGrfVEQeeWTBQn3HvOAEWbE4w\""
-                  }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 25 Sep 2024 09:57:58 GMT"
                 }
               },
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object"
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "6712"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "nginx/1.18.0 (Ubuntu)"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"1a38-0iRGrfVEQeeWTBQn3HvOAEWbE4w\""
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "context": {
+                    "ttl": "PT10M",
+                    "action": "search",
+                    "timestamp": "2024-09-25T09:57:43.646Z",
+                    "message_id": "75d97144-07ae-4774-b293-818070796d5a",
+                    "transaction_id": "f42b02d0-aa63-46ee-8b3a-66a1ca934026",
+                    "domain": "Software Assurance",
+                    "version": "1.1.0",
+                    "bap_id": "bap.ossverse.com",
+                    "bap_uri": "http://bap.ossverse.com",
+                    "location": {
+                      "country": {
+                        "name": "India",
+                        "code": "IND"
+                      },
+                      "city": {
+                        "name": "Bengaluru",
+                        "code": "std:080"
+                      }
+                    }
                   },
-                  "example": {
+                  "message": {
+                    "catalogs": [
+                      {
+                        "context": {
+                          "ttl": "PT10M",
+                          "action": "on_search",
+                          "timestamp": "2024-09-25T09:57:44.532Z",
+                          "message_id": "75d97144-07ae-4774-b293-818070796d5a",
+                          "transaction_id": "f42b02d0-aa63-46ee-8b3a-66a1ca934026",
+                          "domain": "Software Assurance",
+                          "version": "1.1.0",
+                          "bap_id": "bap.ossverse.com",
+                          "bap_uri": "http://bap.ossverse.com",
+                          "bpp_id": "openfort-oasp.ossverse.com",
+                          "bpp_uri": "http://openfort-oasp.ossverse.com",
+                          "location": {
+                            "country": {
+                              "name": "India",
+                              "code": "IND"
+                            },
+                            "city": {
+                              "name": "Bengaluru",
+                              "code": "std:080"
+                            }
+                          },
+                          "country": "IND",
+                          "city": "std:080"
+                        },
+                        "message": {
+                          "bpp/fulfillments": [
+                            {
+                              "id": "1",
+                              "type": "OASP Service Delivery"
+                            }
+                          ],
+                          "bpp/descriptor": {
+                            "name": "Openfort",
+                            "short_desc": "",
+                            "long_desc": "",
+                            "images": [
+                              null
+                            ]
+                          },
+                          "bpp/providers": [
+                            {
+                              "id": "deb909f2-8369-49fc-b30b-231b2ec4b874",
+                              "descriptor": {
+                                "name": "Openfort",
+                                "short_desc": "",
+                                "long_desc": "",
+                                "images": [
+                                  null
+                                ]
+                              },
+                              "items": [
+                                {
+                                  "id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70",
+                                  "descriptor": {
+                                    "name": "Openfort",
+                                    "short_desc": "",
+                                    "long_desc": "",
+                                    "images": [
+                                      null
+                                    ]
+                                  },
+                                  "price": {
+                                    "currency": "INR",
+                                    "value": "11000",
+                                    "maximum_value": "11000"
+                                  },
+                                  "code": "PC0019",
+                                  "category_id": "OSS Project",
+                                  "sub_category_id": "Assurance & Assessment Service",
+                                  "description": "NA",
+                                  "longDescription": "NA"
+                                }
+                              ],
+                              "fulfillments": [
+                                {
+                                  "contact": {
+                                    "phone": "number",
+                                    "email": "emailID"
+                                  }
+                                }
+                              ],
+                              "tags": [
+                                null
+                              ],
+                              "@ondc/org/fssai_license_no": "12345678901234"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/v2/get_quote": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Select",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "selectRequestDto": [
+                    {
+                      "context": {
+                        "domain": "Software Assurance",
+                        "country": "IND",
+                        "city": "std:080",
+                        "action": "select",
+                        "version": "1.1.0",
+                        "bap_id": "bap.ossverse.com",
+                        "bap_uri": "http://bap.ossverse.com",
+                        "bpp_id": "openfort-oasp.ossverse.com",
+                        "bpp_uri": "http://openfort-oasp.ossverse.com",
+                        "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
+                        "message_id": "c00f97e9-3080-4e60-a4de-36b9da720de7",
+                        "timestamp": "2024-09-10T13:06:20.334431Z"
+                      },
+                      "message": {
+                        "order": {
+                          "provider": {
+                            "id": "deb909f2-8369-49fc-b30b-231b2ec4b874"
+                          },
+                          "items": [
+                            {
+                              "id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70"
+                            }
+                          ],
+                          "fulfillment": {}
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 25 Sep 2024 10:00:57 GMT"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "1341"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "nginx/1.18.0 (Ubuntu)"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"53d-kiOX2q1lQYpfDYksmhJsFCJCLuE\""
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": [
+                  {
                     "context": {
                       "ttl": "PT10M",
-                      "action": "search",
-                      "timestamp": "2024-09-25T09:57:43.646Z",
-                      "message_id": "75d97144-07ae-4774-b293-818070796d5a",
-                      "transaction_id": "f42b02d0-aa63-46ee-8b3a-66a1ca934026",
+                      "action": "select",
+                      "timestamp": "2024-09-25T10:00:45.702Z",
+                      "message_id": "a9881f26-744a-4b26-9d03-c8e9c86cee98",
+                      "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
                       "domain": "Software Assurance",
                       "version": "1.1.0",
                       "bap_id": "bap.ossverse.com",
@@ -123,888 +354,438 @@
                           "name": "Bengaluru",
                           "code": "std:080"
                         }
-                      }
+                      },
+                      "bpp_id": "openfort-oasp.ossverse.com",
+                      "bpp_uri": "http://openfort-oasp.ossverse.com"
                     },
                     "message": {
-                      "catalogs": [
-                        {
-                          "context": {
-                            "domain": "Software Assurance",
-                            "action": "on_search",
-                            "version": "1.1.0",
-                            "bpp_id": "openfort-oasp.ossverse.com",
-                            "bpp_uri": "http://openfort-oasp.ossverse.com",
-                            "country": "IND",
-                            "city": "std:080",
-                            "location": {
-                              "country": {
-                                "name": "India",
-                                "code": "IND"
-                              },
-                              "city": {
-                                "name": "Bengaluru",
-                                "code": "std:080"
-                              }
-                            },
-                            "bap_id": "bap.ossverse.com",
-                            "bap_uri": "http://bap.ossverse.com",
-                            "transaction_id": "f42b02d0-aa63-46ee-8b3a-66a1ca934026",
-                            "message_id": "75d97144-07ae-4774-b293-818070796d5a",
-                            "ttl": "PT10M",
-                            "timestamp": "2024-09-25T09:57:44.532Z"
+                      "catalogs": {
+                        "order": {
+                          "provider": {
+                            "id": "deb909f2-8369-49fc-b30b-231b2ec4b874"
                           },
-                          "message": {
-                            "catalog": {
-                              "bpp/fulfillments": [
-                                {
-                                  "id": "1",
-                                  "type": "Delivery"
-                                },
-                                {
-                                  "id": "2",
-                                  "type": "Self-Pickup"
-                                },
-                                {
-                                  "id": "3",
-                                  "type": "Delivery and Self-Pickup"
+                          "fulfillments": [
+                            {
+                              "id": "1",
+                              "@ondc/org/provider_name": "Openfort",
+                              "tracking": false,
+                              "@ondc/org/category": "Logistic type - dummy",
+                              "@ondc/org/TAT": "P1D",
+                              "provider_id": "deb909f2-8369-49fc-b30b-231b2ec4b874",
+                              "type": "Delivery",
+                              "state": {
+                                "descriptor": {
+                                  "code": "Non-serviceable"
                                 }
-                              ],
-                              "bpp/descriptor": {
-                                "name": "Openfort",
-                                "short_desc": "",
-                                "long_desc": "",
-                                "images": [
-                                  null
-                                ]
                               },
-                              "bpp/providers": [
-                                {
-                                  "id": "deb909f2-8369-49fc-b30b-231b2ec4b874",
-                                  "descriptor": {
-                                    "name": "Openfort",
-                                    "short_desc": "",
-                                    "long_desc": "",
-                                    "images": [
-                                      null
-                                    ]
-                                  },
-                                  "time": {
-                                    "label": "enable",
-                                    "timestamp": "2024-09-25T09:57:44.377Z"
-                                  },
-                                  "locations": [
-                                    {
-                                      "id": "123-123",
-                                      "gps": "0,0",
-                                      "address": {
-                                        "city": "NA",
-                                        "state": "NA",
-                                        "area_code": "NA",
-                                        "street": "NA",
-                                        "locality": "NA"
-                                      },
-                                      "time": {
-                                        "days": "1,2,3,4,5,6,7",
-                                        "schedule": {
-                                          "holidays": [],
-                                          "frequency": "",
-                                          "times": []
-                                        },
-                                        "range": {
-                                          "start": "0000",
-                                          "end": "2300"
-                                        }
-                                      },
-                                      "circle": {
-                                        "gps": "0,0",
-                                        "radius": {
-                                          "unit": "km",
-                                          "value": "3"
-                                        }
-                                      }
-                                    }
-                                  ],
-                                  "ttl": "PT24H",
-                                  "items": [
-                                    {
-                                      "id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70",
-                                      "descriptor": {
-                                        "name": "RomRaider",
-                                        "images": []
-                                      },
-                                      "price": {
-                                        "currency": "INR",
-                                        "value": "11000",
-                                        "maximum_value": "11000"
-                                      },
-                                      "quantity": {
-                                        "available": {
-                                          "count": "undefined"
-                                        },
-                                        "maximum": {
-                                          "count": "undefined"
-                                        }
-                                      },
-                                      "category_id": "Assurance & Assessment Service",
-                                      "fulfillment_id": "1",
-                                      "matched": true,
-                                      "@ondc/org/returnable": false,
-                                      "@ondc/org/cancellable": false,
-                                      "@ondc/org/time_to_ship": "PT1H",
-                                      "@ondc/org/seller_pickup_return": true,
-                                      "@ondc/org/mandatory_reqs_veggies_fruits": {},
-                                      "@ondc/org/statutory_reqs_packaged_commodities": {
-                                        "common_or_generic_name_of_commodity": "RomRaider"
-                                      },
-                                      "@ondc/org/statutory_reqs_prepackaged_food": {
-                                        "brand_owner_FSSAI_license_no": "NA",
-                                        "other_FSSAI_license_no": "NA",
-                                        "importer_FSSAI_license_no": "NA"
-                                      },
-                                      "tags": {
-                                        "veg": "no",
-                                        "non_veg": "yes"
-                                      }
-                                    },
-                                    {
-                                      "id": "f5e93e71-73dc-418a-b792-2b9b94a168a2",
-                                      "descriptor": {
-                                        "name": "RomRaider",
-                                        "images": []
-                                      },
-                                      "price": {
-                                        "currency": "INR",
-                                        "value": "11000",
-                                        "maximum_value": "11000"
-                                      },
-                                      "quantity": {
-                                        "available": {
-                                          "count": "undefined"
-                                        },
-                                        "maximum": {
-                                          "count": "undefined"
-                                        }
-                                      },
-                                      "category_id": "Validation & Verification Service",
-                                      "fulfillment_id": "1",
-                                      "matched": true,
-                                      "@ondc/org/returnable": false,
-                                      "@ondc/org/cancellable": false,
-                                      "@ondc/org/time_to_ship": "PT1H",
-                                      "@ondc/org/seller_pickup_return": true,
-                                      "@ondc/org/mandatory_reqs_veggies_fruits": {},
-                                      "@ondc/org/statutory_reqs_packaged_commodities": {
-                                        "common_or_generic_name_of_commodity": "RomRaider"
-                                      },
-                                      "@ondc/org/statutory_reqs_prepackaged_food": {
-                                        "brand_owner_FSSAI_license_no": "NA",
-                                        "other_FSSAI_license_no": "NA",
-                                        "importer_FSSAI_license_no": "NA"
-                                      },
-                                      "tags": {
-                                        "veg": "no",
-                                        "non_veg": "yes"
-                                      }
-                                    },
-                                    {
-                                      "id": "d75daa27-908d-4c09-ad47-1753931d1c4e",
-                                      "descriptor": {
-                                        "name": "RomRaider",
-                                        "images": []
-                                      },
-                                      "price": {
-                                        "currency": "INR",
-                                        "value": "11000",
-                                        "maximum_value": "11000"
-                                      },
-                                      "quantity": {
-                                        "available": {
-                                          "count": "undefined"
-                                        },
-                                        "maximum": {
-                                          "count": "undefined"
-                                        }
-                                      },
-                                      "category_id": "Remediation Service",
-                                      "fulfillment_id": "1",
-                                      "matched": true,
-                                      "@ondc/org/returnable": false,
-                                      "@ondc/org/cancellable": false,
-                                      "@ondc/org/time_to_ship": "PT1H",
-                                      "@ondc/org/seller_pickup_return": true,
-                                      "@ondc/org/mandatory_reqs_veggies_fruits": {},
-                                      "@ondc/org/statutory_reqs_packaged_commodities": {
-                                        "common_or_generic_name_of_commodity": "RomRaider"
-                                      },
-                                      "@ondc/org/statutory_reqs_prepackaged_food": {
-                                        "brand_owner_FSSAI_license_no": "NA",
-                                        "other_FSSAI_license_no": "NA",
-                                        "importer_FSSAI_license_no": "NA"
-                                      },
-                                      "tags": {
-                                        "veg": "no",
-                                        "non_veg": "yes"
-                                      }
-                                    },
-                                    {
-                                      "id": "5acdc084-2089-47f3-9093-c6823de61253",
-                                      "descriptor": {
-                                        "name": "RomRaider",
-                                        "images": []
-                                      },
-                                      "price": {
-                                        "currency": "INR",
-                                        "value": "11000",
-                                        "maximum_value": "11000"
-                                      },
-                                      "quantity": {
-                                        "available": {
-                                          "count": "undefined"
-                                        },
-                                        "maximum": {
-                                          "count": "undefined"
-                                        }
-                                      },
-                                      "category_id": "Pentesting Service",
-                                      "fulfillment_id": "1",
-                                      "matched": true,
-                                      "@ondc/org/returnable": false,
-                                      "@ondc/org/cancellable": false,
-                                      "@ondc/org/time_to_ship": "PT1H",
-                                      "@ondc/org/seller_pickup_return": true,
-                                      "@ondc/org/mandatory_reqs_veggies_fruits": {},
-                                      "@ondc/org/statutory_reqs_packaged_commodities": {
-                                        "common_or_generic_name_of_commodity": "RomRaider"
-                                      },
-                                      "@ondc/org/statutory_reqs_prepackaged_food": {
-                                        "brand_owner_FSSAI_license_no": "NA",
-                                        "other_FSSAI_license_no": "NA",
-                                        "importer_FSSAI_license_no": "NA"
-                                      },
-                                      "tags": {
-                                        "veg": "no",
-                                        "non_veg": "yes"
-                                      }
-                                    },
-                                    {
-                                      "id": "bb0e896a-407c-40ce-816d-b63a063ee600",
-                                      "descriptor": {
-                                        "name": "RomRaider",
-                                        "images": []
-                                      },
-                                      "price": {
-                                        "currency": "INR",
-                                        "value": "11000",
-                                        "maximum_value": "11000"
-                                      },
-                                      "quantity": {
-                                        "available": {
-                                          "count": "undefined"
-                                        },
-                                        "maximum": {
-                                          "count": "undefined"
-                                        }
-                                      },
-                                      "category_id": "Feature Addition",
-                                      "fulfillment_id": "1",
-                                      "matched": true,
-                                      "@ondc/org/returnable": false,
-                                      "@ondc/org/cancellable": false,
-                                      "@ondc/org/time_to_ship": "PT1H",
-                                      "@ondc/org/seller_pickup_return": true,
-                                      "@ondc/org/mandatory_reqs_veggies_fruits": {},
-                                      "@ondc/org/statutory_reqs_packaged_commodities": {
-                                        "common_or_generic_name_of_commodity": "RomRaider"
-                                      },
-                                      "@ondc/org/statutory_reqs_prepackaged_food": {
-                                        "brand_owner_FSSAI_license_no": "NA",
-                                        "other_FSSAI_license_no": "NA",
-                                        "importer_FSSAI_license_no": "NA"
-                                      },
-                                      "tags": {
-                                        "veg": "no",
-                                        "non_veg": "yes"
-                                      }
-                                    },
-                                    {
-                                      "id": "a878412f-c06b-497f-bd07-3f27b3f67e3a",
-                                      "descriptor": {
-                                        "name": "RomRaider",
-                                        "images": []
-                                      },
-                                      "price": {
-                                        "currency": "INR",
-                                        "value": "11000",
-                                        "maximum_value": "11000"
-                                      },
-                                      "quantity": {
-                                        "available": {
-                                          "count": "undefined"
-                                        },
-                                        "maximum": {
-                                          "count": "undefined"
-                                        }
-                                      },
-                                      "category_id": "TAVOSS Version & Certification Service",
-                                      "fulfillment_id": "1",
-                                      "matched": true,
-                                      "@ondc/org/returnable": false,
-                                      "@ondc/org/cancellable": false,
-                                      "@ondc/org/time_to_ship": "PT1H",
-                                      "@ondc/org/seller_pickup_return": true,
-                                      "@ondc/org/mandatory_reqs_veggies_fruits": {},
-                                      "@ondc/org/statutory_reqs_packaged_commodities": {
-                                        "common_or_generic_name_of_commodity": "RomRaider"
-                                      },
-                                      "@ondc/org/statutory_reqs_prepackaged_food": {
-                                        "brand_owner_FSSAI_license_no": "NA",
-                                        "other_FSSAI_license_no": "NA",
-                                        "importer_FSSAI_license_no": "NA"
-                                      },
-                                      "tags": {
-                                        "veg": "no",
-                                        "non_veg": "yes"
-                                      }
-                                    }
-                                  ],
-                                  "fulfillments": [
-                                    {
-                                      "contact": {
-                                        "phone": "8197511885",
-                                        "email": "neeraj.kumar@gmail.com"
-                                      }
-                                    }
-                                  ],
-                                  "tags": [
-                                    {
-                                      "code": "serviceability",
-                                      "list": ""
-                                    },
-                                    {
-                                      "code": "serviceability",
-                                      "list": ""
-                                    },
-                                    {
-                                      "code": "serviceability",
-                                      "list": ""
-                                    },
-                                    {
-                                      "code": "serviceability",
-                                      "list": ""
-                                    },
-                                    {
-                                      "code": "serviceability",
-                                      "list": ""
-                                    },
-                                    {
-                                      "code": "serviceability",
-                                      "list": ""
-                                    }
-                                  ],
-                                  "@ondc/org/fssai_license_no": "12345678901234"
-                                }
-                              ]
+                              "end": "fulfilment-end"
                             }
-                          }
+                          ],
+                          "quote": {
+                            "price": {
+                              "value": "11000",
+                              "currency": "INR"
+                            },
+                            "breakup": [
+                              {
+                                "@ondc/org/item_id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70",
+                                "@ondc/org/item_quantity": {},
+                                "title": "RomRaider",
+                                "@ondc/org/title_type": "item",
+                                "price": {
+                                  "value": "11000",
+                                  "currency": "INR"
+                                },
+                                "item": {
+                                  "price": {
+                                    "currency": "INR",
+                                    "value": "11000"
+                                  },
+                                  "quantity": {
+                                    "available": {
+                                      "count": 1
+                                    },
+                                    "maximum": {
+                                      "count": 1
+                                    }
+                                  }
+                                }
+                              },
+                              {}
+                            ],
+                            "ttl": "P1D"
+                          },
+                          "items": [
+                            {
+                              "id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70",
+                              "fulfillment_id": "1"
+                            }
+                          ],
+                          "type": "DEFAULT"
                         }
-                      ]
+                      }
                     }
                   }
-                }
+                ]
               }
             }
           }
         }
-      },
-      "/client/v2/get_quote": {
-        "post": {
-          "tags": [
-            "default"
-          ],
-          "summary": "Select",
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "example": {
-                    "selectRequestDto": [
-                      {
-                        "context": {
-                          "domain": "Software Assurance",
-                          "country": "IND",
-                          "city": "std:080",
-                          "action": "select",
-                          "version": "1.1.0",
-                          "bap_id": "bap.ossverse.com",
-                          "bap_uri": "http://bap.ossverse.com",
-                          "bpp_id": "openfort-oasp.ossverse.com",
-                          "bpp_uri": "http://openfort-oasp.ossverse.com",
-                          "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
-                          "message_id": "c00f97e9-3080-4e60-a4de-36b9da720de7",
-                          "timestamp": "2024-09-10T13:06:20.334431Z"
-                        },
-                        "message": {
-                          "order": {
-                            "provider": {
-                              "id": "deb909f2-8369-49fc-b30b-231b2ec4b874"
-                            },
-                            "items": [
-                              {
-                                "id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70"
-                              }
-                            ],
-                            "fulfillment": {}
-                          }
-                        }
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          },
-          "responses": {
-            "201": {
-              "description": "Created",
-              "headers": {
-                "Date": {
-                  "schema": {
-                    "type": "string",
-                    "example": "Wed, 25 Sep 2024 10:00:57 GMT"
-                  }
-                },
-                "Content-Type": {
-                  "schema": {
-                    "type": "string",
-                    "example": "application/json; charset=utf-8"
-                  }
-                },
-                "Content-Length": {
-                  "schema": {
-                    "type": "integer",
-                    "example": "1341"
-                  }
-                },
-                "Connection": {
-                  "schema": {
-                    "type": "string",
-                    "example": "keep-alive"
-                  }
-                },
-                "Server": {
-                  "schema": {
-                    "type": "string",
-                    "example": "nginx/1.18.0 (Ubuntu)"
-                  }
-                },
-                "X-Powered-By": {
-                  "schema": {
-                    "type": "string",
-                    "example": "Express"
-                  }
-                },
-                "Access-Control-Allow-Origin": {
-                  "schema": {
-                    "type": "string",
-                    "example": "*"
-                  }
-                },
-                "ETag": {
-                  "schema": {
-                    "type": "string",
-                    "example": "W/\"53d-kiOX2q1lQYpfDYksmhJsFCJCLuE\""
-                  }
-                }
-              },
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object"
-                  },
-                  "example": [
+      }
+    },
+    "/client/v2/initialize_order": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Init",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "initRequestDto": [
                     {
                       "context": {
-                        "ttl": "PT10M",
-                        "action": "select",
-                        "timestamp": "2024-09-25T10:00:45.702Z",
-                        "message_id": "a9881f26-744a-4b26-9d03-c8e9c86cee98",
-                        "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
                         "domain": "Software Assurance",
-                        "version": "1.1.0",
-                        "bap_id": "bap.ossverse.com",
-                        "bap_uri": "http://bap.ossverse.com",
                         "location": {
+                          "city": {
+                            "name": "Bangalore",
+                            "code": "std:080"
+                          },
                           "country": {
                             "name": "India",
                             "code": "IND"
-                          },
-                          "city": {
-                            "name": "Bengaluru",
-                            "code": "std:080"
                           }
                         },
+                        "action": "init",
+                        "version": "1.1.0",
+                        "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
+                        "message_id": "14bbc6b5-901c-49a6-bd69-ae1b71d4b86a",
+                        "timestamp": "2023-10-09T04:46:28.012Z",
+                        "bap_id": "bap.ossverse.com",
+                        "bap_uri": "http://bap.ossverse.com",
                         "bpp_id": "openfort-oasp.ossverse.com",
                         "bpp_uri": "http://openfort-oasp.ossverse.com"
                       },
                       "message": {
-                        "catalogs": {
-                          "order": {
-                            "provider": {
-                              "id": "deb909f2-8369-49fc-b30b-231b2ec4b874"
+                        "order": {
+                          "provider": {
+                            "id": "deb909f2-8369-49fc-b30b-231b2ec4b874"
+                          },
+                          "items": [
+                            {
+                              "id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70"
+                            }
+                          ],
+                          "billing": {
+                            "name": "Neeraj Kumar",
+                            "address": "Apt 303, Maple Towers, Richmond Road, 560001",
+                            "state": {
+                              "name": "Jurong East"
                             },
-                            "fulfillments": [
-                              {
-                                "id": "1",
-                                "@ondc/org/provider_name": "Openfort",
-                                "tracking": false,
-                                "@ondc/org/category": "Logistic type - dummy",
-                                "@ondc/org/TAT": "P1D",
-                                "provider_id": "deb909f2-8369-49fc-b30b-231b2ec4b874",
-                                "type": "Delivery",
-                                "state": {
-                                  "descriptor": {
-                                    "code": "Non-serviceable"
-                                  }
+                            "city": {
+                              "name": "Jurong East"
+                            },
+                            "email": "dummy-neeraj@gmail.com",
+                            "phone": "8197511885"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 25 Sep 2024 10:01:55 GMT"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "2800"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "nginx/1.18.0 (Ubuntu)"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"af0-+mlwkLMOrQiRCPwvpnPCg8F9d2s\""
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": [
+                  {
+                    "context": {
+                      "ttl": "PT10M",
+                      "action": "init",
+                      "timestamp": "2024-09-25T10:01:49.632Z",
+                      "message_id": "5c1bab20-f84a-4bac-97f7-ce8f162818c8",
+                      "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
+                      "domain": "Software Assurance",
+                      "version": "1.1.0",
+                      "bap_id": "bap.ossverse.com",
+                      "bap_uri": "http://bap.ossverse.com",
+                      "location": {
+                        "country": {
+                          "name": "India",
+                          "code": "IND"
+                        },
+                        "city": {
+                          "name": "Bengaluru",
+                          "code": "std:080"
+                        }
+                      },
+                      "bpp_id": "openfort-oasp.ossverse.com",
+                      "bpp_uri": "http://openfort-oasp.ossverse.com"
+                    },
+                    "message": {
+                      "catalogs": {
+                        "context": {
+                          "ttl": "PT10M",
+                          "action": "init",
+                          "timestamp": "2024-09-25T10:01:49.632Z",
+                          "message_id": "5c1bab20-f84a-4bac-97f7-ce8f162818c8",
+                          "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
+                          "domain": "Software Assurance",
+                          "version": "1.1.0",
+                          "bap_id": "bap.ossverse.com",
+                          "bap_uri": "http://bap.ossverse.com",
+                          "location": {
+                            "country": {
+                              "name": "India",
+                              "code": "IND"
+                            },
+                            "city": {
+                              "name": "Bengaluru",
+                              "code": "std:080"
+                            }
+                          },
+                          "bpp_id": "openfort-oasp.ossverse.com",
+                          "bpp_uri": "http://openfort-oasp.ossverse.com"
+                        },
+                        "responses": [
+                          {
+                            "context": {
+                              "ttl": "PT10M",
+                              "action": "on_init",
+                              "timestamp": "2024-09-25T10:01:49.632Z",
+                              "message_id": "5c1bab20-f84a-4bac-97f7-ce8f162818c8",
+                              "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
+                              "domain": "Software Assurance",
+                              "version": "1.1.0",
+                              "bap_id": "bap.ossverse.com",
+                              "bap_uri": "http://bap.ossverse.com",
+                              "location": {
+                                "country": {
+                                  "name": "India",
+                                  "code": "IND"
                                 },
-                                "end": "fulfilment-end"
-                              }
-                            ],
-                            "quote": {
-                              "price": {
-                                "value": "11000",
-                                "currency": "INR"
+                                "city": {
+                                  "name": "Bengaluru",
+                                  "code": "std:080"
+                                }
                               },
-                              "breakup": [
-                                {
-                                  "@ondc/org/item_id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70",
-                                  "@ondc/org/item_quantity": {},
-                                  "title": "RomRaider",
-                                  "@ondc/org/title_type": "item",
+                              "bpp_id": "openfort-oasp.ossverse.com",
+                              "bpp_uri": "http://openfort-oasp.ossverse.com",
+                              "country": "IND",
+                              "city": "std:080"
+                            },
+                            "message": {
+                              "order": {
+                                "provider": {
+                                  "id": "deb909f2-8369-49fc-b30b-231b2ec4b874"
+                                },
+                                "provider_location": {},
+                                "items": [
+                                  {
+                                    "id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70"
+                                  }
+                                ],
+                                "billing": {
+                                  "name": "Neeraj Kumar",
+                                  "address": "Apt 303, Maple Towers, Richmond Road, 560001",
+                                  "state": {
+                                    "name": "Jurong East"
+                                  },
+                                  "city": {
+                                    "name": "Jurong East"
+                                  },
+                                  "email": "dummy-neeraj@gmail.com",
+                                  "phone": "8197511885"
+                                },
+                                "fulfillments": [
+                                  null
+                                ],
+                                "quote": {
                                   "price": {
                                     "value": "11000",
                                     "currency": "INR"
                                   },
-                                  "item": {
-                                    "price": {
-                                      "currency": "INR",
-                                      "value": "11000"
-                                    },
-                                    "quantity": {
-                                      "available": {
+                                  "breakup": [
+                                    {
+                                      "@ondc/org/item_id": "e2b41750-a165-4a42-9255-f02966401783",
+                                      "@ondc/org/item_quantity": {
                                         "count": 1
                                       },
-                                      "maximum": {
-                                        "count": 1
-                                      }
-                                    }
-                                  }
-                                },
-                                {}
-                              ],
-                              "ttl": "P1D"
-                            },
-                            "items": [
-                              {
-                                "id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70",
-                                "fulfillment_id": "1"
-                              }
-                            ],
-                            "type": "DEFAULT"
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      "/client/v2/initialize_order": {
-        "post": {
-          "tags": [
-            "default"
-          ],
-          "summary": "Init",
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "example": {
-                    "initRequestDto": [
-                      {
-                        "context": {
-                          "domain": "Software Assurance",
-                          "location": {
-                            "city": {
-                              "name": "Bangalore",
-                              "code": "std:080"
-                            },
-                            "country": {
-                              "name": "India",
-                              "code": "IND"
-                            }
-                          },
-                          "action": "init",
-                          "version": "1.1.0",
-                          "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
-                          "message_id": "14bbc6b5-901c-49a6-bd69-ae1b71d4b86a",
-                          "timestamp": "2023-10-09T04:46:28.012Z",
-                          "bap_id": "bap.ossverse.com",
-                          "bap_uri": "http://bap.ossverse.com",
-                          "bpp_id": "openfort-oasp.ossverse.com",
-                          "bpp_uri": "http://openfort-oasp.ossverse.com"
-                        },
-                        "message": {
-                          "order": {
-                            "provider": {
-                              "id": "deb909f2-8369-49fc-b30b-231b2ec4b874"
-                            },
-                            "items": [
-                              {
-                                "id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70"
-                              }
-                            ],
-                            "billing": {
-                              "name": "Neeraj Kumar",
-                              "address": "Apt 303, Maple Towers, Richmond Road, 560001",
-                              "state": {
-                                "name": "Jurong East"
-                              },
-                              "city": {
-                                "name": "Jurong East"
-                              },
-                              "email": "dummy-neeraj@gmail.com",
-                              "phone": "8197511885"
-                            }
-                          }
-                        }
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          },
-          "responses": {
-            "201": {
-              "description": "Created",
-              "headers": {
-                "Date": {
-                  "schema": {
-                    "type": "string",
-                    "example": "Wed, 25 Sep 2024 10:01:55 GMT"
-                  }
-                },
-                "Content-Type": {
-                  "schema": {
-                    "type": "string",
-                    "example": "application/json; charset=utf-8"
-                  }
-                },
-                "Content-Length": {
-                  "schema": {
-                    "type": "integer",
-                    "example": "2800"
-                  }
-                },
-                "Connection": {
-                  "schema": {
-                    "type": "string",
-                    "example": "keep-alive"
-                  }
-                },
-                "Server": {
-                  "schema": {
-                    "type": "string",
-                    "example": "nginx/1.18.0 (Ubuntu)"
-                  }
-                },
-                "X-Powered-By": {
-                  "schema": {
-                    "type": "string",
-                    "example": "Express"
-                  }
-                },
-                "Access-Control-Allow-Origin": {
-                  "schema": {
-                    "type": "string",
-                    "example": "*"
-                  }
-                },
-                "ETag": {
-                  "schema": {
-                    "type": "string",
-                    "example": "W/\"af0-+mlwkLMOrQiRCPwvpnPCg8F9d2s\""
-                  }
-                }
-              },
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object"
-                  },
-                  "example": [
-                    {
-                      "context": {
-                        "ttl": "PT10M",
-                        "action": "init",
-                        "timestamp": "2024-09-25T10:01:49.632Z",
-                        "message_id": "5c1bab20-f84a-4bac-97f7-ce8f162818c8",
-                        "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
-                        "domain": "Software Assurance",
-                        "version": "1.1.0",
-                        "bap_id": "bap.ossverse.com",
-                        "bap_uri": "http://bap.ossverse.com",
-                        "location": {
-                          "country": {
-                            "name": "India",
-                            "code": "IND"
-                          },
-                          "city": {
-                            "name": "Bengaluru",
-                            "code": "std:080"
-                          }
-                        },
-                        "bpp_id": "openfort-oasp.ossverse.com",
-                        "bpp_uri": "http://openfort-oasp.ossverse.com"
-                      },
-                      "message": {
-                        "catalogs": {
-                          "context": {
-                            "ttl": "PT10M",
-                            "action": "init",
-                            "timestamp": "2024-09-25T10:01:49.632Z",
-                            "message_id": "5c1bab20-f84a-4bac-97f7-ce8f162818c8",
-                            "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
-                            "domain": "Software Assurance",
-                            "version": "1.1.0",
-                            "bap_id": "bap.ossverse.com",
-                            "bap_uri": "http://bap.ossverse.com",
-                            "location": {
-                              "country": {
-                                "name": "India",
-                                "code": "IND"
-                              },
-                              "city": {
-                                "name": "Bengaluru",
-                                "code": "std:080"
-                              }
-                            },
-                            "bpp_id": "openfort-oasp.ossverse.com",
-                            "bpp_uri": "http://openfort-oasp.ossverse.com"
-                          },
-                          "responses": [
-                            {
-                              "context": {
-                                "domain": "Software Assurance",
-                                "action": "on_init",
-                                "version": "1.1.0",
-                                "bpp_id": "openfort-oasp.ossverse.com",
-                                "bpp_uri": "http://openfort-oasp.ossverse.com",
-                                "country": "IND",
-                                "city": "std:080",
-                                "location": {
-                                  "country": {
-                                    "name": "India",
-                                    "code": "IND"
-                                  },
-                                  "city": {
-                                    "name": "Bengaluru",
-                                    "code": "std:080"
-                                  }
-                                },
-                                "bap_id": "bap.ossverse.com",
-                                "bap_uri": "http://bap.ossverse.com",
-                                "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
-                                "message_id": "5c1bab20-f84a-4bac-97f7-ce8f162818c8",
-                                "ttl": "PT10M",
-                                "timestamp": "2024-09-25T10:01:55.303Z"
-                              },
-                              "message": {
-                                "order": {
-                                  "provider": {
-                                    "id": "deb909f2-8369-49fc-b30b-231b2ec4b874"
-                                  },
-                                  "provider_location": {},
-                                  "items": [
-                                    {
-                                      "id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70"
-                                    }
-                                  ],
-                                  "billing": {
-                                    "name": "Neeraj Kumar",
-                                    "address": "Apt 303, Maple Towers, Richmond Road, 560001",
-                                    "state": {
-                                      "name": "Jurong East"
-                                    },
-                                    "city": {
-                                      "name": "Jurong East"
-                                    },
-                                    "email": "dummy-neeraj@gmail.com",
-                                    "phone": "8197511885"
-                                  },
-                                  "fulfillments": [],
-                                  "quote": {
-                                    "price": {
-                                      "value": "11000",
-                                      "currency": "INR"
-                                    },
-                                    "breakup": [
-                                      {
-                                        "@ondc/org/item_id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70",
-                                        "@ondc/org/item_quantity": {
-                                          "count": 1
-                                        },
-                                        "title": "RomRaider",
-                                        "@ondc/org/title_type": "item",
+                                      "title": "RomRaider",
+                                      "@ondc/org/title_type": "item",
+                                      "price": {
+                                        "value": "11000",
+                                        "currency": "INR"
+                                      },
+                                      "item": {
                                         "price": {
                                           "value": "11000",
                                           "currency": "INR"
                                         },
-                                        "item": {
-                                          "price": {
-                                            "value": "11000",
-                                            "currency": "INR"
+                                        "quantity": {
+                                          "available": {
+                                            "count": "1"
+                                          },
+                                          "maximum": {
+                                            "count": "1"
                                           }
                                         }
-                                      },
-                                      {
-                                        "title": "Delivery charges",
-                                        "@ondc/org/title_type": "delivery",
-                                        "@ondc/org/item_id": "fullfillment_id_0",
-                                        "price": {
-                                          "currency": "INR",
-                                          "value": "0"
-                                        }
                                       }
-                                    ],
-                                    "ttl": "P1D"
-                                  },
-                                  "payment": {
-                                    "@ondc/org/buyer_app_finder_fee_type": "Percent",
-                                    "@ondc/org/buyer_app_finder_fee_amount": "3.0",
-                                    "@ondc/org/settlement_details": [
-                                      {
-                                        "settlement_counterparty": "seller-app",
-                                        "settlement_phase": "sale-amount",
-                                        "settlement_type": "neft",
-                                        "settlement_bank_account_no": "1234567890",
-                                        "settlement_ifsc_code": "IFSC0001234",
-                                        "beneficiary_name": "openfort",
-                                        "bank_name": "Bank of Springfield",
-                                        "branch_name": "Main Branch"
-                                      }
-                                    ]
-                                  },
-                                  "type": "DEFAULT"
-                                }
+                                    }
+                                  ],
+                                  "ttl": "P1D"
+                                },
+                                "payment": {
+                                  "@ondc/org/buyer_app_finder_fee_type": "Percent",
+                                  "@ondc/org/buyer_app_finder_fee_amount": "3.0",
+                                  "@ondc/org/settlement_details": [
+                                    {
+                                      "settlement_counterparty": "seller-app",
+                                      "settlement_phase": "sale-amount",
+                                      "settlement_type": "neft",
+                                      "settlement_bank_account_no": "1234567890",
+                                      "settlement_ifsc_code": "IFSC0001234",
+                                      "beneficiary_name": "openfort",
+                                      "bank_name": "Bank of Springfield",
+                                      "branch_name": "Main Branch"
+                                    }
+                                  ]
+                                },
+                                "type": "DEFAULT"
                               }
                             }
-                          ]
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/v2/confirm": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Confirm",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "confirmRequestDto": [
+                    {
+                      "context": {
+                        "domain": "Software Assurance",
+                        "location": {
+                          "city": {
+                            "name": "Bangalore",
+                            "code": "std:080"
+                          },
+                          "country": {
+                            "name": "India",
+                            "code": "IND"
+                          }
+                        },
+                        "action": "confirm",
+                        "version": "1.1.0",
+                        "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
+                        "message_id": "1d07c819-695c-44ab-bd47-c21678a6ba4e",
+                        "timestamp": "2023-10-09T04:46:28.012Z",
+                        "bap_id": "bap.ossverse.com",
+                        "bap_uri": "http://bap.ossverse.com",
+                        "bpp_id": "openfort-oasp.ossverse.com",
+                        "bpp_uri": "http://openfort-oasp.ossverse.com"
+                      },
+                      "message": {
+                        "order": {
+                          "provider": {
+                            "id": "deb909f2-8369-49fc-b30b-231b2ec4b874"
+                          },
+                          "items": [
+                            {
+                              "id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70"
+                            }
+                          ],
+                          "fulfillments": [],
+                          "billing": {
+                            "name": "Neeraj Kumar",
+                            "address": "Apt 303, Maple Towers, Richmond Road, 560001",
+                            "state": {
+                              "name": "Jurong East"
+                            },
+                            "city": {
+                              "name": "Jurong East"
+                            },
+                            "email": "dummy-neeraj@gmail.com",
+                            "phone": "8197511885"
+                          }
                         }
                       }
                     }
@@ -1013,136 +794,91 @@
               }
             }
           }
-        }
-      },
-      "/client/v2/confirm": {
-        "post": {
-          "tags": [
-            "default"
-          ],
-          "summary": "Confirm",
-          "requestBody": {
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 25 Sep 2024 10:02:42 GMT"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "2968"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "nginx/1.18.0 (Ubuntu)"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"b98-XBAaMsUnkP5w4/KO50pTh8N3dr0\""
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "example": {
-                    "confirmRequestDto": [
-                      {
-                        "context": {
-                          "domain": "Software Assurance",
-                          "location": {
-                            "city": {
-                              "name": "Bangalore",
-                              "code": "std:080"
-                            },
-                            "country": {
-                              "name": "India",
-                              "code": "IND"
-                            }
-                          },
-                          "action": "confirm",
-                          "version": "1.1.0",
-                          "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
-                          "message_id": "1d07c819-695c-44ab-bd47-c21678a6ba4e",
-                          "timestamp": "2023-10-09T04:46:28.012Z",
-                          "bap_id": "bap.ossverse.com",
-                          "bap_uri": "http://bap.ossverse.com",
-                          "bpp_id": "openfort-oasp.ossverse.com",
-                          "bpp_uri": "http://openfort-oasp.ossverse.com"
+                  "type": "object"
+                },
+                "example": [
+                  {
+                    "context": {
+                      "ttl": "PT10M",
+                      "action": "confirm",
+                      "timestamp": "2024-09-25T10:02:31.804Z",
+                      "message_id": "92051bc8-5fd2-43bd-8dce-5d0270dcda30",
+                      "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
+                      "domain": "Software Assurance",
+                      "version": "1.1.0",
+                      "bap_id": "bap.ossverse.com",
+                      "bap_uri": "http://bap.ossverse.com",
+                      "location": {
+                        "country": {
+                          "name": "India",
+                          "code": "IND"
                         },
-                        "message": {
-                          "order": {
-                            "provider": {
-                              "id": "deb909f2-8369-49fc-b30b-231b2ec4b874"
-                            },
-                            "items": [
-                              {
-                                "id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70"
-                              }
-                            ],
-                            "fulfillments": [],
-                            "billing": {
-                              "name": "Neeraj Kumar",
-                              "address": "Apt 303, Maple Towers, Richmond Road, 560001",
-                              "state": {
-                                "name": "Jurong East"
-                              },
-                              "city": {
-                                "name": "Jurong East"
-                              },
-                              "email": "dummy-neeraj@gmail.com",
-                              "phone": "8197511885"
-                            }
-                          }
+                        "city": {
+                          "name": "Bengaluru",
+                          "code": "std:080"
                         }
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          },
-          "responses": {
-            "201": {
-              "description": "Created",
-              "headers": {
-                "Date": {
-                  "schema": {
-                    "type": "string",
-                    "example": "Wed, 25 Sep 2024 10:02:42 GMT"
-                  }
-                },
-                "Content-Type": {
-                  "schema": {
-                    "type": "string",
-                    "example": "application/json; charset=utf-8"
-                  }
-                },
-                "Content-Length": {
-                  "schema": {
-                    "type": "integer",
-                    "example": "2968"
-                  }
-                },
-                "Connection": {
-                  "schema": {
-                    "type": "string",
-                    "example": "keep-alive"
-                  }
-                },
-                "Server": {
-                  "schema": {
-                    "type": "string",
-                    "example": "nginx/1.18.0 (Ubuntu)"
-                  }
-                },
-                "X-Powered-By": {
-                  "schema": {
-                    "type": "string",
-                    "example": "Express"
-                  }
-                },
-                "Access-Control-Allow-Origin": {
-                  "schema": {
-                    "type": "string",
-                    "example": "*"
-                  }
-                },
-                "ETag": {
-                  "schema": {
-                    "type": "string",
-                    "example": "W/\"b98-XBAaMsUnkP5w4/KO50pTh8N3dr0\""
-                  }
-                }
-              },
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object"
-                  },
-                  "example": [
-                    {
+                      },
+                      "bpp_id": "openfort-oasp.ossverse.com",
+                      "bpp_uri": "http://openfort-oasp.ossverse.com"
+                    },
+                    "message": {
                       "context": {
                         "ttl": "PT10M",
                         "action": "confirm",
@@ -1166,12 +902,421 @@
                         "bpp_id": "openfort-oasp.ossverse.com",
                         "bpp_uri": "http://openfort-oasp.ossverse.com"
                       },
+                      "responses": [
+                        {
+                          "context": {
+                            "ttl": "PT10M",
+                            "action": "on_confirm",
+                            "timestamp": "2024-09-25T10:02:31.804Z",
+                            "message_id": "92051bc8-5fd2-43bd-8dce-5d0270dcda30",
+                            "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
+                            "domain": "Software Assurance",
+                            "version": "1.1.0",
+                            "bap_id": "bap.ossverse.com",
+                            "bap_uri": "http://bap.ossverse.com",
+                            "bpp_id": "openfort-oasp.ossverse.com",
+                            "bpp_uri": "http://openfort-oasp.ossverse.com"
+                          },
+                          "message": {
+                            "order": {
+                              "id": "order-$2a$10$jsQRdlp0lLd6C4B7.PiItuu/y3tueCuIIKmyRawbKqEB8ZToOnSxG",
+                              "state": "Created",
+                              "provider": {
+                                "id": "ceae624e-be6a-4ec5-b483-b23b3a715aa5"
+                              },
+                              "items": [
+                                {
+                                  "descriptor": {
+                                    "name": "RomRaider"
+                                  },
+                                  "price": {
+                                    "currency": "INR",
+                                    "value": "11000"
+                                  },
+                                  "category_id": "OSS Project",
+                                  "quantity": {
+                                    "count": 1,
+                                    "measure": {
+                                      "unit": "Unit-count",
+                                      "value": 1
+                                    }
+                                  }
+                                }
+                              ],
+                              "billing": {
+                                "tax_number": "22AAAAA0000A1Z5",
+                                "phone": "0987654321",
+                                "email": "openfort@example.com",
+                                "created_at": "2024-09-25T10:02:32.285Z",
+                                "updated_at": "2024-09-25T10:02:32.285Z"
+                              },
+                              "fulfillments": [
+                                null
+                              ],
+                              "quote": {
+                                "ttl": "P1D",
+                                "price": {
+                                  "currency": "INR",
+                                  "value": "11000"
+                                },
+                                "breakup": [
+                                  {
+                                    "item": {
+                                      "price": {
+                                        "currency": "INR",
+                                        "value": "11000"
+                                      }
+                                    },
+                                    "price": {
+                                      "currency": "INR",
+                                      "value": "11000"
+                                    },
+                                    "title": "RomRaider",
+                                    "@ondc/org/item_id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70",
+                                    "@ondc/org/title_type": "item",
+                                    "@ondc/org/item_quantity": {
+                                      "count": 1
+                                    }
+                                  }
+                                ]
+                              },
+                              "payment": {
+                                "@ondc/org/settlement_details": [
+                                  {
+                                    "bank_name": "Bank of Springfield",
+                                    "branch_name": "Main Branch",
+                                    "settlement_type": "neft",
+                                    "beneficiary_name": "openfort",
+                                    "settlement_phase": "sale-amount",
+                                    "settlement_ifsc_code": "IFSC0001234",
+                                    "settlement_counterparty": "seller-app",
+                                    "settlement_bank_account_no": "1234567890"
+                                  }
+                                ],
+                                "@ondc/org/buyer_app_finder_fee_type": "Percent",
+                                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                              },
+                              "created_at": "2024-09-25T10:02:32.285Z",
+                              "updated_at": "2024-09-25T10:02:32.285Z",
+                              "type": "DEFAULT",
+                              "displayId": "034764"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/v2/status": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Status",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "statusRequestDto": [
+                    {
+                      "context": {
+                        "domain": "Software Assurance",
+                        "location": {
+                          "city": {
+                            "name": "Bangalore",
+                            "code": "std:080"
+                          },
+                          "country": {
+                            "name": "India",
+                            "code": "IND"
+                          }
+                        },
+                        "action": "status",
+                        "version": "1.1.0",
+                        "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
+                        "message_id": "a9db91f8-73ef-4c32-9d47-738b8823f9c7",
+                        "timestamp": "2023-10-09T04:46:28.012Z",
+                        "bap_id": "bap.ossverse.com",
+                        "bap_uri": "http://bap.ossverse.com",
+                        "bpp_id": "openfort-oasp.ossverse.com",
+                        "bpp_uri": "http://openfort-oasp.ossverse.com"
+                      },
+                      "message": {
+                        "order_id": "order-$2a$10$XkfeMc8YMYALPefE8b0E6OciMD5DP33c2RU4RAnEy4/z69Skp9gfG"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 25 Sep 2024 10:03:16 GMT"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "2197"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "nginx/1.18.0 (Ubuntu)"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"895-n1fFTh2wvJu8ddODcK+DXbEN7Pw\""
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": [
+                  {
+                    "context": {
+                      "ttl": "PT10M",
+                      "action": "status",
+                      "timestamp": "2024-09-25T10:03:05.819Z",
+                      "message_id": "d1ddd1ff-57e8-484e-a1aa-0ec1cccda869",
+                      "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
+                      "domain": "Software Assurance",
+                      "version": "1.1.0",
+                      "bap_id": "bap.ossverse.com",
+                      "bap_uri": "http://bap.ossverse.com",
+                      "location": {
+                        "country": {
+                          "country": {
+                            "name": "India",
+                            "code": "IND"
+                          },
+                          "city": {
+                            "name": "Bengaluru",
+                            "code": "std:080"
+                          }
+                        },
+                        "city": {
+                          "name": "Bengaluru",
+                          "code": "std:080"
+                        }
+                      },
+                      "bpp_id": "openfort-oasp.ossverse.com",
+                      "bpp_uri": "http://openfort-oasp.ossverse.com"
+                    },
+                    "message": {
+                      "order": {
+                        "provider": {
+                          "id": "deb909f2-8369-49fc-b30b-231b2ec4b874",
+                          "locations": [
+                            {
+                              "country": {
+                                "name": "India",
+                                "code": "IND"
+                              },
+                              "city": {
+                                "name": "Bengaluru",
+                                "code": "std:080"
+                              }
+                            }
+                          ]
+                        },
+                        "state": "Created",
+                        "items": [
+                          {
+                            "descriptor": {
+                              "name": "RomRaider"
+                            },
+                            "price": {
+                              "currency": "INR",
+                              "value": "11000"
+                            },
+                            "category_id": "OSS Project",
+                            "quantity": {
+                              "count": 1,
+                              "measure": {
+                                "unit": "Unit-count",
+                                "value": 1
+                              }
+                            }
+                          }
+                        ],
+                        "billing": {
+                          "tax_number": "22AAAAA0000A1Z5",
+                          "phone": "0987654321",
+                          "email": "openfort@example.com",
+                          "created_at": "2024-09-25T04:43:25.726Z",
+                          "updated_at": "2024-09-25T04:43:25.726Z"
+                        },
+                        "fulfillments": [
+                          null
+                        ],
+                        "quote": {
+                          "ttl": "P1D",
+                          "price": {
+                            "currency": "INR",
+                            "value": "11000"
+                          },
+                          "breakup": [
+                            {
+                              "item": {
+                                "currency": "INR",
+                                "value": "11000"
+                              },
+                              "price": {
+                                "currency": "INR",
+                                "value": "11000"
+                              },
+                              "title": "RomRaider",
+                              "@ondc/org/item_id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70",
+                              "@ondc/org/title_type": "item",
+                              "@ondc/org/item_quantity": {
+                                "count": 1
+                              }
+                            }
+                          ]
+                        },
+                        "payment": {
+                          "@ondc/org/settlement_details": [
+                            {
+                              "bank_name": "Bank of Springfield",
+                              "branch_name": "Main Branch",
+                              "settlement_type": "neft",
+                              "beneficiary_name": "openfort",
+                              "settlement_phase": "sale-amount",
+                              "settlement_ifsc_code": "IFSC0001234",
+                              "settlement_counterparty": "seller-app",
+                              "settlement_bank_account_no": "1234567890"
+                            }
+                          ],
+                          "@ondc/org/buyer_app_finder_fee_type": "Percent",
+                          "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                        },
+                        "id": "order-$2a$10$XkfeMc8YMYALPefE8b0E6OciMD5DP33c2RU4RAnEy4/z69Skp9gfG",
+                        "created_at": "2024-09-25T10:03:05.819Z",
+                        "updated_at": "2024-09-25T10:03:05.819Z",
+                        "type": "DEFAULT",
+                        "displayId": "order-$2a$10$XkfeMc8YMYALPefE8b0E6OciMD5DP33c2RU4RAnEy4/z69Skp9gfG"
+                      }
+                    },
+                    "qr_url": ""
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/v2/orders": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Orders",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "123"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            },
+            "example": {
+              "orders": [
+                {
+                  "id": "66fa79ab8ad1ad5a43f54f43",
+                  "userId": "string",
+                  "parentOrderId": "a6b5ddb3-6171-4062-a4b7-b2de82c64e7a",
+                  "orders": [
+                    {
+                      "context": {
+                        "ttl": "PT10M",
+                        "action": "confirm",
+                        "timestamp": "2024-09-25T10:03:05.819Z",
+                        "message_id": "d1ddd1ff-57e8-484e-a1aa-0ec1cccda869",
+                        "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
+                        "domain": "Software Assurance",
+                        "version": "1.1.0",
+                        "bap_id": "bap.ossverse.com",
+                        "bap_uri": "http://bap.ossverse.com",
+                        "location": {
+                          "country": {
+                            "country": {
+                              "name": "India",
+                              "code": "IND"
+                            },
+                            "city": {
+                              "name": "Bengaluru",
+                              "code": "std:080"
+                            }
+                          },
+                          "city": {
+                            "name": "Bengaluru",
+                            "code": "std:080"
+                          }
+                        },
+                        "bpp_id": "openfort-oasp.ossverse.com",
+                        "bpp_uri": "http://openfort-oasp.ossverse.com"
+                      },
                       "message": {
                         "context": {
                           "ttl": "PT10M",
                           "action": "confirm",
-                          "timestamp": "2024-09-25T10:02:31.804Z",
-                          "message_id": "92051bc8-5fd2-43bd-8dce-5d0270dcda30",
+                          "timestamp": "2024-09-25T10:03:05.819Z",
+                          "message_id": "d1ddd1ff-57e8-484e-a1aa-0ec1cccda869",
                           "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
                           "domain": "Software Assurance",
                           "version": "1.1.0",
@@ -1179,8 +1324,14 @@
                           "bap_uri": "http://bap.ossverse.com",
                           "location": {
                             "country": {
-                              "name": "India",
-                              "code": "IND"
+                              "country": {
+                                "name": "India",
+                                "code": "IND"
+                              },
+                              "city": {
+                                "name": "Bengaluru",
+                                "code": "std:080"
+                              }
                             },
                             "city": {
                               "name": "Bengaluru",
@@ -1193,27 +1344,52 @@
                         "responses": [
                           {
                             "context": {
+                              "ttl": "PT10M",
+                              "action": "on_status",
+                              "timestamp": "2024-09-25T10:03:05.819Z",
+                              "message_id": "d1ddd1ff-57e8-484e-a1aa-0ec1cccda869",
+                              "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
                               "domain": "Software Assurance",
-                              "action": "on_confirm",
-                              "core_version": "1.1.0",
-                              "bpp_id": "openfort-oasp.ossverse.com",
-                              "bpp_uri": "http://openfort-oasp.ossverse.com",
-                              "country": "IND",
-                              "city": "std:080",
+                              "version": "1.1.0",
                               "bap_id": "bap.ossverse.com",
                               "bap_uri": "http://bap.ossverse.com",
-                              "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
-                              "message_id": "92051bc8-5fd2-43bd-8dce-5d0270dcda30",
-                              "ttl": "PT10M",
-                              "timestamp": "2024-09-25T10:02:42.354Z"
+                              "location": {
+                                "country": {
+                                  "country": {
+                                    "name": "India",
+                                    "code": "IND"
+                                  },
+                                  "city": {
+                                    "name": "Bengaluru",
+                                    "code": "std:080"
+                                  }
+                                },
+                                "city": {
+                                  "name": "Bengaluru",
+                                  "code": "std:080"
+                                }
+                              },
+                              "bpp_id": "openfort-oasp.ossverse.com",
+                              "bpp_uri": "http://openfort-oasp.ossverse.com"
                             },
                             "message": {
                               "order": {
-                                "id": "order-$2a$10$jsQRdlp0lLd6C4B7.PiItuu/y3tueCuIIKmyRawbKqEB8ZToOnSxG",
-                                "state": "Created",
                                 "provider": {
-                                  "id": "deb909f2-8369-49fc-b30b-231b2ec4b874"
+                                  "id": "deb909f2-8369-49fc-b30b-231b2ec4b874",
+                                  "locations": [
+                                    {
+                                      "country": {
+                                        "name": "India",
+                                        "code": "IND"
+                                      },
+                                      "city": {
+                                        "name": "Bengaluru",
+                                        "code": "std:080"
+                                      }
+                                    }
+                                  ]
                                 },
+                                "state": "Created",
                                 "items": [
                                   {
                                     "descriptor": {
@@ -1237,27 +1413,27 @@
                                   "tax_number": "22AAAAA0000A1Z5",
                                   "phone": "0987654321",
                                   "email": "openfort@example.com",
-                                  "created_at": "2024-09-25T10:02:32.285Z",
-                                  "updated_at": "2024-09-25T10:02:32.285Z"
+                                  "created_at": "2024-09-25T04:43:25.726Z",
+                                  "updated_at": "2024-09-25T04:43:25.726Z"
                                 },
-                                "fulfillments": [],
+                                "fulfillments": [
+                                  null
+                                ],
                                 "quote": {
                                   "ttl": "P1D",
                                   "price": {
-                                    "value": "11000",
-                                    "currency": "INR"
+                                    "currency": "INR",
+                                    "value": "11000"
                                   },
                                   "breakup": [
                                     {
                                       "item": {
-                                        "price": {
-                                          "value": "11000",
-                                          "currency": "INR"
-                                        }
+                                        "currency": "INR",
+                                        "value": "11000"
                                       },
                                       "price": {
-                                        "value": "11000",
-                                        "currency": "INR"
+                                        "currency": "INR",
+                                        "value": "11000"
                                       },
                                       "title": "RomRaider",
                                       "@ondc/org/item_id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70",
@@ -1265,15 +1441,6 @@
                                       "@ondc/org/item_quantity": {
                                         "count": 1
                                       }
-                                    },
-                                    {
-                                      "price": {
-                                        "value": "0",
-                                        "currency": "INR"
-                                      },
-                                      "title": "Delivery charges",
-                                      "@ondc/org/item_id": "fullfillment_id_0",
-                                      "@ondc/org/title_type": "delivery"
                                     }
                                   ]
                                 },
@@ -1293,10 +1460,10 @@
                                   "@ondc/org/buyer_app_finder_fee_type": "Percent",
                                   "@ondc/org/buyer_app_finder_fee_amount": "3.0"
                                 },
-                                "created_at": "2024-09-25T10:02:32.285Z",
-                                "updated_at": "2024-09-25T10:02:32.285Z",
-                                "type": "DEFAULT",
-                                "displayId": "034764"
+                                "id": "order-$2a$10$XkfeMc8YMYALPefE8b0E6OciMD5DP33c2RU4RAnEy4/z69Skp9gfG",
+                                "created_at": "2024-09-25T10:03:05.819Z",
+                                "updated_at": "2024-09-25T10:03:05.819Z",
+                                "type": "DEFAULT"
                               }
                             }
                           }
@@ -1305,252 +1472,11 @@
                     }
                   ]
                 }
-              }
-            }
-          }
-        }
-      },
-      "/client/v2/status": {
-        "post": {
-          "tags": [
-            "default"
-          ],
-          "summary": "Status",
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "example": {
-                    "statusRequestDto": [
-                      {
-                        "context": {
-                          "domain": "Software Assurance",
-                          "location": {
-                            "city": {
-                              "name": "Bangalore",
-                              "code": "std:080"
-                            },
-                            "country": {
-                              "name": "India",
-                              "code": "IND"
-                            }
-                          },
-                          "action": "status",
-                          "version": "1.1.0",
-                          "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
-                          "message_id": "a9db91f8-73ef-4c32-9d47-738b8823f9c7",
-                          "timestamp": "2023-10-09T04:46:28.012Z",
-                          "bap_id": "bap.ossverse.com",
-                          "bap_uri": "http://bap.ossverse.com",
-                          "bpp_id": "openfort-oasp.ossverse.com",
-                          "bpp_uri": "http://openfort-oasp.ossverse.com"
-                        },
-                        "message": {
-                          "order_id": "order-$2a$10$XkfeMc8YMYALPefE8b0E6OciMD5DP33c2RU4RAnEy4/z69Skp9gfG"
-                        }
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          },
-          "responses": {
-            "201": {
-              "description": "Created",
-              "headers": {
-                "Date": {
-                  "schema": {
-                    "type": "string",
-                    "example": "Wed, 25 Sep 2024 10:03:16 GMT"
-                  }
-                },
-                "Content-Type": {
-                  "schema": {
-                    "type": "string",
-                    "example": "application/json; charset=utf-8"
-                  }
-                },
-                "Content-Length": {
-                  "schema": {
-                    "type": "integer",
-                    "example": "2197"
-                  }
-                },
-                "Connection": {
-                  "schema": {
-                    "type": "string",
-                    "example": "keep-alive"
-                  }
-                },
-                "Server": {
-                  "schema": {
-                    "type": "string",
-                    "example": "nginx/1.18.0 (Ubuntu)"
-                  }
-                },
-                "X-Powered-By": {
-                  "schema": {
-                    "type": "string",
-                    "example": "Express"
-                  }
-                },
-                "Access-Control-Allow-Origin": {
-                  "schema": {
-                    "type": "string",
-                    "example": "*"
-                  }
-                },
-                "ETag": {
-                  "schema": {
-                    "type": "string",
-                    "example": "W/\"895-n1fFTh2wvJu8ddODcK+DXbEN7Pw\""
-                  }
-                }
-              },
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object"
-                  },
-                  "example": [
-                    {
-                      "context": {
-                        "ttl": "PT10M",
-                        "action": "status",
-                        "timestamp": "2024-09-25T10:03:05.819Z",
-                        "message_id": "d1ddd1ff-57e8-484e-a1aa-0ec1cccda869",
-                        "transaction_id": "ead489b8-81de-49a4-baf6-8d8de7eabf32",
-                        "domain": "Software Assurance",
-                        "version": "1.1.0",
-                        "bap_id": "bap.ossverse.com",
-                        "bap_uri": "http://bap.ossverse.com",
-                        "location": {
-                          "country": {
-                            "name": "India",
-                            "code": "IND"
-                          },
-                          "city": {
-                            "name": "Bengaluru",
-                            "code": "std:080"
-                          }
-                        },
-                        "bpp_id": "openfort-oasp.ossverse.com",
-                        "bpp_uri": "http://openfort-oasp.ossverse.com"
-                      },
-                      "message": {
-                        "order": {
-                          "provider": {
-                            "id": "deb909f2-8369-49fc-b30b-231b2ec4b874",
-                            "locations": [
-                              {
-                                "country": {
-                                  "name": "India",
-                                  "code": "IND"
-                                },
-                                "city": {
-                                  "name": "Bengaluru",
-                                  "code": "std:080"
-                                }
-                              }
-                            ]
-                          },
-                          "state": "Created",
-                          "items": [
-                            {
-                              "descriptor": {
-                                "name": "RomRaider"
-                              },
-                              "price": {
-                                "currency": "INR",
-                                "value": "11000"
-                              },
-                              "category_id": "OSS Project",
-                              "quantity": {
-                                "count": 1,
-                                "measure": {
-                                  "unit": "Unit-count",
-                                  "value": 1
-                                }
-                              }
-                            }
-                          ],
-                          "billing": {
-                            "tax_number": "22AAAAA0000A1Z5",
-                            "phone": "0987654321",
-                            "email": "openfort@example.com",
-                            "created_at": "2024-09-25T04:43:25.726Z",
-                            "updated_at": "2024-09-25T04:43:25.726Z"
-                          },
-                          "fulfillments": [],
-                          "quote": {
-                            "ttl": "P1D",
-                            "price": {
-                              "value": "11000",
-                              "currency": "INR"
-                            },
-                            "breakup": [
-                              {
-                                "item": {
-                                  "price": {
-                                    "value": "11000",
-                                    "currency": "INR"
-                                  }
-                                },
-                                "price": {
-                                  "value": "11000",
-                                  "currency": "INR"
-                                },
-                                "title": "RomRaider",
-                                "@ondc/org/item_id": "1edd54c3-dd53-43e0-b3ad-355d2e8bba70",
-                                "@ondc/org/title_type": "item",
-                                "@ondc/org/item_quantity": {
-                                  "count": 1
-                                }
-                              },
-                              {
-                                "price": {
-                                  "value": "0",
-                                  "currency": "INR"
-                                },
-                                "title": "Delivery charges",
-                                "@ondc/org/item_id": "fullfillment_id_0",
-                                "@ondc/org/title_type": "delivery"
-                              }
-                            ]
-                          },
-                          "payment": {
-                            "@ondc/org/settlement_details": [
-                              {
-                                "bank_name": "Bank of Springfield",
-                                "branch_name": "Main Branch",
-                                "settlement_type": "neft",
-                                "beneficiary_name": "openfort",
-                                "settlement_phase": "sale-amount",
-                                "settlement_ifsc_code": "IFSC0001234",
-                                "settlement_counterparty": "seller-app",
-                                "settlement_bank_account_no": "1234567890"
-                              }
-                            ],
-                            "@ondc/org/buyer_app_finder_fee_type": "Percent",
-                            "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-                          },
-                          "id": "order-$2a$10$XkfeMc8YMYALPefE8b0E6OciMD5DP33c2RU4RAnEy4/z69Skp9gfG",
-                          "created_at": "2024-09-25T10:03:05.819Z",
-                          "updated_at": "2024-09-25T10:03:05.819Z",
-                          "type": "DEFAULT",
-                          "displayId": "order-$2a$10$XkfeMc8YMYALPefE8b0E6OciMD5DP33c2RU4RAnEy4/z69Skp9gfG"
-                        }
-                      },
-                      "qr_url": ""
-                    }
-                  ]
-                }
-              }
+              ]
             }
           }
         }
       }
     }
   }
+}
