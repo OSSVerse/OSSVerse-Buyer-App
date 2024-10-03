@@ -32,8 +32,3 @@ After this step, the app will be up and running.
 1. Download the [postman collection](./OSSVerse-Buyer-App.postman_collection.json)
 2. Open Postman.
 3. Import the collection from the downloaded location.
-
-
-## License
-
-Nest is [MIT licensed](LICENSE).
