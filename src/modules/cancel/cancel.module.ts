@@ -14,7 +14,7 @@ import { UuidFactory } from 'src/shared/factories/uuid.factory.provider';
 
 @Module({
     imports: [HttpModule],
-    controllers: [],
-    providers: [],
+    controllers: [CancelController],
+    providers: [CancelService, CancelMapper, ProtocolServerService, ContextFactory, UuidFactory, Logger],
 })
 export class CancelModule {}
