@@ -7,7 +7,6 @@ OSSVerse-Buyer-App acts as a business layer between the storefront ui and the ba
 ## Pre-requisites
 
 1. Install Docker and Docker compose
-2. Set up a firebase account and copy the firebase configurations to `OSSVerse-Buyer-App/src/resources/firebase_config_dev.json` and to `OSSVerse-Buyer-App/src/resources/firebase_config_prod.json`
 
 ## Installation
 
