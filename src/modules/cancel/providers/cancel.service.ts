@@ -36,7 +36,7 @@ export class CancelService {
       const mappedResult = this.mapper.map(result)
       return mappedResult
     } catch (error) {
-      this.logger.error("error executing status call",error)
+      this.logger.error("error executing cancel call",error)
       throw error
     }
   }
