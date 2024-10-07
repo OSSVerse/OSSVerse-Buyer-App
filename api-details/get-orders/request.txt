@@ -1,0 +1,3 @@
+curl -X 'GET' \
+  'http://ossverse-api.ossverse.com/client/v2/orders?userId=12345' \
+  -H 'accept: application/json'

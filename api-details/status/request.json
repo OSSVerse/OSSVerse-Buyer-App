@@ -1,0 +1,31 @@
+{
+    "statusRequestDto": [
+      {
+        "context": {
+          "domain": "Software Assurance",
+          "action": "status",
+          "version": "1.1.0",
+          "transaction_id": "7e4959aa-9a5b-4660-9a7c-aa8f8659dc0e",
+          "location": {
+            "city": {
+              "name": "Bangalore",
+              "code": "std:080"
+            },
+            "country": {
+              "name": "India",
+              "code": "IND"
+            }
+          },
+          "bpp_id": "openfort-oasp.ossverse.com",
+          "bpp_uri": "http://openfort-oasp.ossverse.com",
+          "bap_id": "bap.ossverse.com",
+          "bap_uri": "http://bap.ossverse.com",
+          "message_id": "1d07c819-695c-44ab-bd47-c21678a6ba4e",
+          "timestamp": "2023-10-09T04:46:28.012Z"
+        },
+        "message": {
+          "order_id": "order-$2a$10$nz.prTRAuH5dAGpTqwA0n.V2Utbpc/qRdHVJ1t3A2oZTy8E4SZ1ha"
+        }
+      }
+    ]
+  }
