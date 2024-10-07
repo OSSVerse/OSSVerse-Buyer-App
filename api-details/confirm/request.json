@@ -1,0 +1,68 @@
+{
+    "confirmRequestDto": [
+      {
+        "context": {
+          "domain": "Software Assurance",
+          "action": "confirm",
+          "version": "1.1.0",
+          "transaction_id": "7e4959aa-9a5b-4660-9a7c-aa8f8659dc0e",
+          "location": {
+            "city": {
+              "name": "Bangalore",
+              "code": "std:080"
+            },
+            "country": {
+              "name": "India",
+              "code": "IND"
+            }
+          },
+          "bpp_id": "openfort-oasp.ossverse.com",
+          "bpp_uri": "http://openfort-oasp.ossverse.com",
+          "bap_id": "bap.ossverse.com",
+          "bap_uri": "http://bap.ossverse.com",
+          "message_id": "1d07c819-695c-44ab-bd47-c21678a6ba4e",
+          "timestamp": "2023-10-09T04:46:28.012Z"
+        },
+        "message": {
+          "order": {
+            "provider": {
+                "id": "c09226c0-3cb9-47d8-aca9-24fb6e8aa866"
+              },
+              "items": [
+                {
+                  "id": "84d9e936-8231-4ce5-b91e-de7565afe9b1"
+                },
+    {
+                  "id": "df038e21-ad49-410d-a623-4a5728fd0c1f"
+                },
+    {
+                  "id": "17f19bb5-480a-4d0b-bce2-22fcefdb969b"
+                },
+    {
+                  "id": "3e8f0c3e-9606-4f64-8f68-eaee8d07836f"
+                },
+    {
+                  "id": "2d28ae46-75bf-4c8e-8ed4-91ef6aa7f543"
+                },
+    {
+                  "id": "1970f4e0-9c51-44df-a4ae-7944d3287377"
+                }
+              ],
+            "billing": {
+              "name": "Name",
+              "address": "address",
+              "state": {
+                "name": "Name"
+              },
+              "city": {
+                "name": "Name"
+              },
+              "email": "example@gmail.com",
+              "phone": "123456789"
+            }
+          }
+        }
+      }
+    ],
+    "userId": "12345"
+  }
