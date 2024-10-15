@@ -1,10 +1,10 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Domain } from "src/configs/api.config";
+import { Domain } from "../../../configs/api.config";
 
 class SearchCriteria {
   @ApiProperty({
     example: 'RomRaider',
-    type:String
+    type: String
   })
   searchString?: string;
   // @ApiProperty({
@@ -29,13 +29,13 @@ class SearchCriteria {
   // providerName?: string;
   @ApiProperty({
     example: 'OSS Project',
-    type:String
+    type: String
   })
   categoryName?: string;
 }
 class SearchRequestMessageDto {
   @ApiProperty({
-    type:SearchCriteria
+    type: SearchCriteria
   })
   criteria: SearchCriteria
 }
@@ -73,9 +73,9 @@ class ClientContext {
   bpp_uri?: string
   @ApiProperty({
     example: 'bap.ossverse.com',
-    description:'domain is required'
+    description: 'domain is required'
   })
-  bap_id? :string
+  bap_id?: string
   @ApiProperty({
     example: 'http://bap.ossverse.com',
     type: String
@@ -99,7 +99,7 @@ export class SearchRequestDto {
   })
   context: ClientContext
   @ApiProperty({
-    type:SearchRequestMessageDto
+    type: SearchRequestMessageDto
   })
   message: SearchRequestMessageDto
 }
