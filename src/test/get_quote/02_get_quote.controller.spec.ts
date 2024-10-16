@@ -96,8 +96,8 @@ describe('GetQuoteController', () => {
         ]
       });
 
-    console.log("=========test response get_quote start=========== ", response)
-    console.log(" =========test response get_quote end===========",)
+    //console.log("=========test response get_quote start=========== ", response)
+    //console.log(" =========test response get_quote end===========",)
     expect(response.status).toBe(201); // Adjust based on actual response status code
   });
 });

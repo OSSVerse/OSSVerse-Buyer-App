@@ -80,8 +80,8 @@ describe('DiscoveryController', () => {
         }
       });
 
-    console.log("=========test response start=========== ", response)
-    console.log(" =========test response end===========",)
+    //console.log("=========test response start=========== ", response)
+    //console.log(" =========test response end===========",)
     expect(response.status).toBe(201); // Adjust based on actual response status code
   });
 });

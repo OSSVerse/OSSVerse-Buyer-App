@@ -111,8 +111,8 @@ describe('InitController', () => {
         ]
       });
 
-    console.log("=========test response initialize_order start=========== ", response)
-    console.log(" =========test response initialize_order end===========",)
+    //console.log("=========test response initialize_order start=========== ", response)
+    //console.log(" =========test response initialize_order end===========",)
     expect(response.status).toBe(201); // Adjust based on actual response status code
   });
 });

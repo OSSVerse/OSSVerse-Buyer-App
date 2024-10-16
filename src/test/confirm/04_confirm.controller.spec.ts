@@ -1,5 +1,6 @@
 // Load environment variables
 import * as dotenv from 'dotenv';
+//import * as mongoose from 'mongoose';
 dotenv.config({ path: '.env.default' });
 
 jest.setTimeout(300000); // Set timeout to 10 seconds for all tests
@@ -7,9 +8,11 @@ jest.setTimeout(300000); // Set timeout to 10 seconds for all tests
 import { Test, TestingModule } from '@nestjs/testing';
 import { ConfirmController } from '../../modules/confirm/confirm.controller';
 import { ConfirmService } from "../../modules/confirm/providers/confirm.service";
-//import { getModelToken } from '@nestjs/mongoose';
-import { Order } from '../../modules/order/models/order.schema';
+import { Order, OrderSchema } from '../../modules/order/models/order.schema';
 
+import { MongooseModule } from '@nestjs/mongoose';
+import { OrderId, OrderIdSchema } from '../../shared/models/order-id.schema';
+import * as mongoose from 'mongoose';
 
 import { ConfirmMapper } from "../../modules/confirm/mapper/confirm.mapper"; // Adjust the import path as necessary
 import { ProtocolServerService } from "../../shared/providers/protocol-server.provider";
@@ -26,11 +29,17 @@ describe('ConfirmController', () => {
   let controller: ConfirmController;
   let confirmService: ConfirmService;
 
-
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [ConfirmController],
-      imports: [HttpModule],
+
+      imports: [
+        MongooseModule.forRoot('mongodb://admin:password@localhost:27017/'),
+        MongooseModule.forFeature([{ name: Order.name, schema: OrderSchema }]),
+        MongooseModule.forFeature([{ name: OrderId.name, schema: OrderIdSchema }]),
+        HttpModule,
+      ],
+
       providers: [
         ConfirmService,
         ConfirmMapper,
@@ -38,7 +47,8 @@ describe('ConfirmController', () => {
         ContextFactory,
         Logger,
         UuidFactory,
-        Order
+        Order,
+        OrderId,
       ],
     }).compile();
 
@@ -52,6 +62,7 @@ describe('ConfirmController', () => {
 
   afterAll(async () => {
     await app.close();
+    await mongoose.connection.close();  // Close the MongoDB connection explicitly
   });
 
   it('should be defined', () => {
@@ -117,8 +128,8 @@ describe('ConfirmController', () => {
         "userId": "123456"
       });
 
-    console.log("=========test response confirm start=========== ", response)
-    console.log(" =========test response confirm end===========",)
+    // console.log("=========test response confirm start=========== ", response)
+    // console.log(" =========test response confirm end===========",)
     expect(response.status).toBe(201); // Adjust based on actual response status code
   });
 

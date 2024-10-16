@@ -9,9 +9,10 @@ import { StatusController } from '../../modules/status/status.controller';
 import { StatusService } from "../../modules/status/providers/status.service";
 import { FileUploadService } from "../../shared/providers/file-upload.provider"
 
-import { OrderId } from "../../shared/models/order-id.schema";
-import { InjectModel } from "@nestjs/mongoose";
-import { Model } from "mongoose";
+import { OrderId, OrderIdSchema } from "../../shared/models/order-id.schema";
+
+import { MongooseModule } from '@nestjs/mongoose';
+import * as mongoose from 'mongoose';
 
 import { StatusMapper } from "../../modules/status/mapper/status.mapper"; // Adjust the import path as necessary
 import { ProtocolServerService } from "../../shared/providers/protocol-server.provider";
@@ -32,6 +33,8 @@ describe('StatusController', () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [StatusController],
       imports: [
+        MongooseModule.forRoot('mongodb://admin:password@localhost:27017/'),
+        MongooseModule.forFeature([{ name: OrderId.name, schema: OrderIdSchema }]),
         HttpModule,
 
       ],
@@ -56,6 +59,7 @@ describe('StatusController', () => {
   });
 
   afterAll(async () => {
+    await mongoose.connection.close();  // Close the MongoDB connection explicitly
     await app.close();
   });
 
@@ -101,8 +105,8 @@ describe('StatusController', () => {
         ]
       });
 
-    console.log("=========test response status start=========== ", response)
-    console.log(" =========test response status end===========",)
+    //console.log("=========test response status start=========== ", response)
+    //console.log(" =========test response status end===========",)
     expect(response.status).toBe(201); // Adjust based on actual response status code
   });
 });
