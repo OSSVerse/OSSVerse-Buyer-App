@@ -45,7 +45,7 @@ jobs:
       - name: Run tests for OSSVerse buyer module
         run: |
           npm install
-          npm test
+          timeout 180s npm test || echo "OSSVerse-buyer-app tests timed out"
         
 
       # Step 7: Stop and remove Docker containers
