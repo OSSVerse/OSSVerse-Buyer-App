@@ -19,7 +19,7 @@ export class DiscoveryService {
 
   async search(requestPayload: SearchRequestDto): Promise<any> {
     try {
-      const context = this.contextFactory.create(ProtocolContextAction.SEARCH,requestPayload.context.domain)
+      const context = this.contextFactory.create(ProtocolContextAction.SEARCH, requestPayload.context.domain)
       let additionalPayload
       let fullfillment = {
         // start: {
@@ -35,7 +35,7 @@ export class DiscoveryService {
         // }
 
       }
-      if (requestPayload.context.domain===Domain.retail || requestPayload.context.domain===Domain.tourism) {
+      if (requestPayload.context.domain === Domain.retail || requestPayload.context.domain === Domain.tourism) {
 
         additionalPayload = {
           fulfillment: fullfillment,
@@ -56,7 +56,7 @@ export class DiscoveryService {
         }
       }
       let payload;
-      if (requestPayload.context.domain===Domain.retail || requestPayload.context.domain===Domain.tourism) {
+      if (requestPayload.context.domain === Domain.retail || requestPayload.context.domain === Domain.tourism) {
         payload = {
           context: context,
           message: {
