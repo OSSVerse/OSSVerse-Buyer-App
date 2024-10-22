@@ -4,6 +4,7 @@ import { Model } from "mongoose";
 import { InjectModel } from "@nestjs/mongoose";
 import { ProtocolServerService } from "src/shared/providers/protocol-server.provider";
 import { becknUrl } from "src/configs/api.config";
+import { json } from "stream/consumers";
 
 @Injectable()
 export class OrderService {
@@ -11,7 +12,7 @@ export class OrderService {
     private logger: Logger,
     private readonly protocolServerService: ProtocolServerService,
     @InjectModel(Order.name) private orderModel: Model<Order>
-  ) {}
+  ) { }
 
   async fetchOrders(userId: string): Promise<any> {
     try {
@@ -41,18 +42,18 @@ export class OrderService {
           return Promise.all(
             // Order Items
             userOrder.orders.map((eachOrderItem) => {
-              if (
-                eachOrderItem?.message?.responses === undefined ||
-                eachOrderItem?.message?.responses.length === 0
-              ) {
-                return {
-                  context: eachOrderItem?.context,
-                  message: {
-                    context: eachOrderItem?.message?.context,
-                    responses: eachOrderItem?.message?.responses,
-                  },
-                };
-              }
+              // if (
+              //   eachOrderItem?.message?.responses === undefined ||
+              //   eachOrderItem?.message?.responses.length === 0
+              // ) {
+              //   return {
+              //     context: eachOrderItem?.context,
+              //     message: {
+              //       context: eachOrderItem?.message?.context,
+              //       responses: eachOrderItem?.message?.responses,
+              //     },
+              //   };
+              // }
               const payload = {
                 context: {
                   ...eachOrderItem?.message?.context,
@@ -76,6 +77,18 @@ export class OrderService {
                 });
             })
           ).then((reponseOrder) => {
+
+            console.log("==============responseOrder===================", JSON.stringify(reponseOrder));
+            // Filter to get only the last object from reponseOrder
+            //const lastOrder = reponseOrder[reponseOrder.length - 1];
+
+            if (reponseOrder.length > 0) {
+              const tmpResponse = [reponseOrder[0].message.responses[reponseOrder[0].message.responses.length - 1]];
+              reponseOrder[0].message.responses = tmpResponse;
+
+
+              console.log("==============reponseOrder===================", JSON.stringify(reponseOrder));
+            }
             return this.orderModel
               .updateOne(
                 {
